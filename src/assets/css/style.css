@@ -1,0 +1,29 @@
+body:not(.top-nav) .sidebar{
+    right: 0px;
+}
+
+body:not(.top-nav) .sidebar ul.nav{
+    direction: rtl;
+}
+
+.main{
+    margin-right: 200px;
+}
+
+.footer{
+    right: 200px !important;
+}
+
+@media (min-width: 991px){
+    body.mobile-open .sidebar{
+        right: -200px;
+    }
+    
+    body.mobile-open .main{
+        margin-right: 0px;
+    }
+
+    body.mobile-open .footer{
+        right: 0px !important;
+    }
+}
