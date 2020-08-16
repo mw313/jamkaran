@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Jamkaran Program">
+  <meta name="author" content="Wosughi Mehdi">
+  <meta name="keyword" content="Jamkaran Program">
+  <title>Jamkaran Program</title>
+  <link href="../assets/CoreUI/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/CoreUI/css/simple-line-icons.css" rel="stylesheet">
+  <link href="../assets/CoreUI/dest/style.css" rel="stylesheet">
+</head>
+<body>
+  <div id="App"></div>
+</body>
+
+<script type="text/jsx">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+
+const render = () => {
+  const App = require('../Components/app').default;
+  ReactDOM.render(<AppContainer><App /></AppContainer>, document.getElementById('App'));
+}
+
+render();
+if (module.hot) {
+  module.hot.accept(render);
+}
+</script>
+<script src="../assets/CoreUI/js/libs/jquery.min.js"></script>
+<script src="../assets/CoreUI/js/libs/tether.min.js"></script>
+<script src="../assets/CoreUI/js/libs/bootstrap.min.js"></script>
+<script src="../assets/CoreUI/js/libs/pace.min.js"></script>
+
+<!-- Plugins and scripts required by all views -->
+<script src="../assets/CoreUI/js/libs/Chart.min.js"></script>
+
+<!-- CoreUI main scripts -->
+
+<script src="../assets/CoreUI/js/app.js"></script>
+
+<!-- Plugins and scripts required by this views -->
+<!-- Custom scripts required by this view -->
+<script src="../assets/CoreUI/js/views/main.js"></script>
+</html>
