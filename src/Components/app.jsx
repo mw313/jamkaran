@@ -1,5 +1,6 @@
 import React from 'react';
 import {Header, Footer, Sidebar, Main} from './Theme';
+import { HashRouter } from 'react-router-dom';
 
 // const window = require('electron').BrowserWindow;
 
@@ -9,12 +10,13 @@ export default class App extends React.Component {
     loadTheme();
   }
   render() {
-    return (
-    <React.Fragment>
-      <Header />
-      <Sidebar />
-      <Main />
-      <Footer />
-    </React.Fragment>);
+    return (    
+      <HashRouter>
+        <Header />
+        <Sidebar />
+        <Main />
+        <Footer />
+      </HashRouter>
+    );
   }
 }

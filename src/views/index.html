@@ -13,7 +13,16 @@
   <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body className="navbar-fixed sidebar-nav fixed-nav">
-  <div id="App"></div>
+  <header class="title-bar">
+    <div class="title"><span>المستغاث بک یا صاحب الزمان عج</span></div>
+    <div class="title-bar-btns">
+        <span id="close-btn" class="button">&#xE8BB;</span>
+        <span id="min-btn" class="button">&#xE921;</span>
+    </div>
+  </header>
+  <div class="main-frame">
+    <div id="App"></div>
+  </div>
 </body>
 
 <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
@@ -24,6 +33,7 @@
 <script src="../assets/CoreUI/js/libs/Chart.min.js"></script>
 <script src="../assets/CoreUI/js/app.js"></script>
 <script src="../assets/CoreUI/js/views/main.js"></script>
+<script src="../assets/js/window.js"></script>
 
 <script>if (window.module) module = window.module;</script>
 

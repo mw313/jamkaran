@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Breadcrumb } from './Breadcrumb';
-import { Dashboard } from '../Base';
+import { Routes } from './Routes';
 
 class Main extends Component{
     render(){
@@ -10,7 +9,7 @@ class Main extends Component{
                 <div className="container-fluid">
                     <div className="animated fadeIn">
                         <div className="row">
-                            <Dashboard />
+                            <Routes />
                         </div>
                     </div>
                 </div>
