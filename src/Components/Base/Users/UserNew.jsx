@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card} from "./../Theme";
+import {Card} from "../../Theme";
 
 class UserNew extends Component{
     render(){

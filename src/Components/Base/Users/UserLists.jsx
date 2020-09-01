@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {UserController} from "./../../Controllers";
-import {Card} from "./../Theme";
+import {UserController} from "../../../Controllers";
+import {Card} from "../../Theme";
 
 class UserList extends Component{
     constructor(props){
