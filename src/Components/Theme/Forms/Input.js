@@ -1,6 +1,5 @@
 import React from 'react';
 import {Element} from './Element';
-import Lang from '../Tools/Lang';
 
 export class Input extends Element {
     constructor(props){
@@ -38,7 +37,7 @@ export class Input extends Element {
             )
         }
 
-        let labelTranslated = Lang('public.'+label);
+        let labelTranslated = label;
         return(
             <div className = {className}>
                 <label className={"form-group has-float-label "}>
@@ -47,7 +46,7 @@ export class Input extends Element {
                            key={'input'+rand}
                            ref='item'
                            disabled={disabled}
-                           placeholder={(placeholder)?Lang('public.'+placeholder, {title: labelTranslated}):""}
+                           placeholder={(placeholder)?placeholder:""}
                            onFocus={()=>this.removeError()}
                            id={id}
                            max={max}

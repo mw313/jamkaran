@@ -1,5 +1,4 @@
 import React from 'react';
-import Lang from '../Tools/Lang';
 
 export const Button = (props) => {
   let {label, onClick, className, disabled} = props;
@@ -10,7 +9,7 @@ export const Button = (props) => {
                       window.event = event;
                       onClick(event)}
                   }>
-          {Lang('public.'+label)}
+          {label}
           <span className="loading"></span>
       </button>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Element} from './Element';
-import Lang from '../Tools/Lang';
 
 class Select2 extends Element{
   constructor(props){
@@ -20,7 +19,7 @@ class Select2 extends Element{
       let {label, defaultValue, placeholder, options, data} = this.props;
       let id = this.state.id;
       let self = this;
-      let labelTranslated = Lang('public.'+label);
+      let labelTranslated = label;
 
       if( typeof defaultValue != "number" && typeof defaultValue != "string" && defaultValue != undefined && defaultValue.length > 0){
           let temp = [];
@@ -37,7 +36,7 @@ class Select2 extends Element{
               data: data,
               // rtl: true,
               allowClear: true,
-              placeholder:Lang('public.'+placeholder, {title: Lang('public.'+label)}),
+              placeholder: placeholder,
               maximumSelectionSize: 6
           }).on("select2:select",(e)=>{
               if (options!=undefined) {
@@ -93,7 +92,7 @@ class Select2 extends Element{
                   </select>
                   <span>
                       {requiredDiv}
-                      {Lang('public.'+label)}
+                      {label}
                       {helpDiv}
                   </span>
                   {divError}

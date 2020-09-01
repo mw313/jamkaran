@@ -1,6 +1,5 @@
 import React from 'react';
 import {Element} from './Element';
-import Lang from '../Tools/Lang';
 
 class Textarea extends Element {
     constructor(props){
@@ -23,14 +22,14 @@ class Textarea extends Element {
             helpDiv = <a href='#' alt={help}><i class="fa fa-question-circle" aria-hidden="true"></i></a>;
         }
         if (row==undefined) row = 5;
-        let labelTranslated = Lang('public.'+label);
+        let labelTranslated = label;
         return(
             <div className={"form-group curve "+className}>
                 <label className="form-group has-float-label">
                     <textarea disabled={(disabled == undefined)?false:true} className="form-control" key={Math.random()*1000}
                         style={{paddingTop: '10px'}}
                         rows={row}
-                        placeholder={Lang('public.'+placeholder, {title: labelTranslated})}
+                        placeholder={placeholder}
                         defaultValue = {defaultValue} ref='item'
                         onFocus = {()=>this.removeError()}
                         {...options}></textarea>

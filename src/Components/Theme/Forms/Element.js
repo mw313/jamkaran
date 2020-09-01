@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import jsxToString from 'jsx-to-string';
 import isEqual from "react-fast-compare";
 
 class Element extends Component{
