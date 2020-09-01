@@ -148,3 +148,10 @@ body:not(.top-nav) .sidebar ul.nav{
 .rtl .list-group, [dir=rtl] .list-group li{
     cursor: pointer;
 }
+
+/*************** Right Menu *********************/
+.sidebar ul.nav li.nav-title{
+    background-color: #f8cb00;
+    font-size: 14px !important;
+    color: #FFF !important;
+}

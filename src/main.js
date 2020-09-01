@@ -1,11 +1,11 @@
 import { app, BrowserWindow } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
-import { enableLiveReload } from 'electron-compile';
+// import { enableLiveReload } from 'electron-compile';
 
 let mainWindow;
 
 const isDevMode = process.execPath.match(/[\\/]electron/);
-if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
+// if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
 const createWindow = async () => {
   mainWindow = new BrowserWindow({
