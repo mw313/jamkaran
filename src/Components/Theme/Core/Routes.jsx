@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dashboard, UserList, UserNew} from './../Base';
+import {Dashboard, UserList, UserNew} from './../../Base';
 import {Route} from 'react-router-dom';
 
 // const window = require('electron').BrowserWindow;

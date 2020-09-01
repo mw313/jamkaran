@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {Card} from "./../Theme";
 
 class UserNew extends Component{
     render(){
         return (
-            <React.Fragment>
-                کاربر جدید
-            </React.Fragment>
+            <Card title="کاربر جدید">
+                
+            </Card>
         );
     }
 }
