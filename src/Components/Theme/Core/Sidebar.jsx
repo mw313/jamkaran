@@ -9,7 +9,7 @@ class Sidebar extends Component{
                     <ul className="nav">
                         <li className="nav-item">
                             <Link className="nav-link" to="/">
-                                <i className="icon-speedometer"></i> داشبورد <span className="tag tag-info">جدید</span>
+                                <i className="icon-speedometer"></i> داشبورد
                             </Link>
                         </li>
 
@@ -18,17 +18,17 @@ class Sidebar extends Component{
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/userLists">
-                                <i className="icon-user-follow"></i> لیست کاربران
+                                <i className="icon-user-follow"></i> لیست متقاضیان
                             </Link>
                             <Link className="nav-link" to="/userNew">
-                                <i className="icon-people"></i> کاربر جدید
+                                <i className="icon-people"></i> متقاضی جدید
                             </Link>
                         </li>
 
-                        <li className="nav-title">
+                        <li className="nav-title" style={{display:"none"}}>
                             اطلاعات پایه
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item"  style={{display:"none"}}>
                             <a className="nav-link" href="#"><i className="icon-docs"></i> وضعیت تحصیلی </a>
                         </li>
 

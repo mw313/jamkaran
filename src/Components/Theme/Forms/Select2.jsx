@@ -73,31 +73,29 @@ class Select2 extends Element{
       }
 
       return(
-          <div className={className}>
-              <label className={"form-group has-float-label"}>
-                  <select
-                      id = {id}
-                      ref="item"
-                      className="form-control select2-single"
-                      tabIndex="-1"
-                      aria-hidden="true"
-                      multiple={Boolean(multiple)}
-                      disabled={(disabled == undefined)?false:true}
-                      data ={(options!=undefined)?options.data:""}
-                  >
-                      <option></option>
-                      {
-                          this.props.children
-                      }
-                  </select>
-                  <span>
-                      {requiredDiv}
-                      {label}
-                      {helpDiv}
-                  </span>
-                  {divError}
-              </label>
-          </div>
+            <div className={"form-group "+className}>
+                <label htmlFor="name">{label}</label>
+                <select
+                        id = {id}
+                        ref="item"
+                        className="form-control select2-single"
+                        tabIndex="-1"
+                        aria-hidden="true"
+                        multiple={Boolean(multiple)}
+                        disabled={(disabled == undefined)?false:true}
+                        data ={(options!=undefined)?options.data:""}
+                    >
+                    <option value="0"></option>
+                    {
+                        this.props.children
+                    }
+                </select>
+                <span>
+                    {requiredDiv}
+                    {helpDiv}
+                </span>
+                {divError}
+            </div>
       );
   }
 }

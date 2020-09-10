@@ -19,26 +19,24 @@ class Textarea extends Element {
         }
         if(help != undefined)
         {
-            helpDiv = <a href='#' alt={help}><i class="fa fa-question-circle" aria-hidden="true"></i></a>;
+            helpDiv = <a href='#' alt={help}><i className="fa fa-question-circle" aria-hidden="true"></i></a>;
         }
         if (row==undefined) row = 5;
-        let labelTranslated = label;
+                
         return(
-            <div className={"form-group curve "+className}>
-                <label className="form-group has-float-label">
-                    <textarea disabled={(disabled == undefined)?false:true} className="form-control" key={Math.random()*1000}
+            <div className={"form-group "+className}>
+                <label htmlFor="name">{label}</label>
+                <textarea disabled={(disabled == undefined)?false:true} className="form-control" key={Math.random()*1000}
                         style={{paddingTop: '10px'}}
                         rows={row}
                         placeholder={placeholder}
                         defaultValue = {defaultValue} ref='item'
                         onFocus = {()=>this.removeError()}
                         {...options}></textarea>
-                    <span>
-                        {requiredDiv}
-                        {labelTranslated}
-                        {helpDiv}
-                    </span>
-                </label>
+                <span>
+                    {requiredDiv}
+                    {helpDiv}
+                </span>
                 {divError}
             </div>
         );

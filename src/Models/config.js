@@ -7,7 +7,8 @@ var config = {
 
     datastores: {
         default: {
-            adapter: 'disk'
+            adapter: 'disk',
+            retryWrites: false
         }
     }
 };

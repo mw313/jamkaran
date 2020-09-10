@@ -49,7 +49,7 @@ class Icon extends Component{
                     :
                     <Link to={path} style={style} className={title!=undefined?'tooltip':""}> {icon} </Link>;
             else
-                return <a style={{cursor:"pointer", ...style}} className={title!=undefined?'tooltip':""} alt={Lang('public.'+title)} onClick={click} data-url={url} data-id={id}  data-message={message==undefined?'':message} > {icon} </a>;
+                return <a style={Object.assign({}, {cursor:"pointer"}, style)} className={title!=undefined?'tooltip':""} alt={Lang('public.'+title)} onClick={click} data-url={url} data-id={id}  data-message={message==undefined?'':message} > {icon} </a>;
         else
             return <React.Fragment></React.Fragment>
     }

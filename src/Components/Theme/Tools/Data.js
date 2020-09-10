@@ -2,8 +2,7 @@ import axios from 'axios';
 import Config from '../../Config';
 import $ from 'jquery';
 import {NotificationManager} from 'react-notifications';
-import { Tools } from './Tools';
-import {Lang} from './../';
+import {Lang, Tools} from './../';
 
 
 
@@ -58,6 +57,15 @@ class Data{
                             data[ref] = 0;
                         }
                     }
+                    else if(refs[ref].refs.item.type == "radio"){
+                        if(data[ref] = refs[ref].refs.item.checked)
+                        {
+                            data[ref] = refs[ref].refs.item.value;
+                        }
+                        else{
+                            data[ref] = 0;
+                        }
+                    }
                     else if(refs[ref].refs.item.multiple == true)
                     {
                         // console.log(refs[ref].refs.item);
@@ -89,17 +97,6 @@ class Data{
         //console.log(data);
 
         axios.post(`${Config.getHost()}${url}`, data)
-        // axios({
-        //     headers: {
-        //         // 'content-type': 'application/json',
-        //         'Content-Type': 'application/x-www-form-urlencoded'
-        //         // 'Content-Type': 'multipart/form-data'
-        //     },
-        //     method: 'POST',
-        //     url: `${Config.getHost()}${url}`,
-        //     data: data
-        //     // params: data
-        // })
         .then((response)=>{
 
             let result = parseInt(response.data);
@@ -126,8 +123,6 @@ class Data{
         })
         .catch((error)=>{
             if (error.response) {
-                // The request was made and the server responded with a status code
-
                 if(error.response.status == 422){
                     parent.setState({errors: error.response.data.errors});
                     NotificationManager.error(Lang('public.error-422'),Lang('public.error message'), 5000);
@@ -166,13 +161,64 @@ class Data{
         });
     }
 
+    static getRefs(component){
+        let data = {};
+        let {refs} = component;
+
+        let targetBTN = window.event.target;
+
+        $('#contentFrame').css('filter', 'blur(1px)');
+        $(targetBTN).addClass('btn-loading');
+        $(targetBTN).attr('disabled', 'disabled');
+
+        // if(type=="edit"|| type=="update"){
+        //     data['_method'] = 'PUT';
+        // }
+
+        Object.keys(refs).forEach((ref, index)=>{
+            if(ref.value!=undefined){
+                data[ref] = refs[ref].value;
+            }
+            else{
+                if(refs[ref].refs.item == undefined && Object.keys(refs[ref].refs).length >= 1){ // Radio Button
+                    data[ref] = null;
+                    Object.keys(refs[ref].refs).forEach((item)=>{
+                        if(refs[ref].refs[item].checked == true){
+                            data[ref] = refs[ref].refs[item].value;
+                        }
+                    })
+                }
+                else if(refs[ref].refs.item.type == "checkbox"){
+                    if(data[ref] = refs[ref].refs.item.checked)
+                    {
+                        data[ref] = refs[ref].refs.item.value;
+                    }
+                    else{
+                        data[ref] = 0;
+                    }
+                }
+                else if(refs[ref].refs.item.multiple == true)
+                {
+                    var values = window.$('#'+refs[ref].refs.item.id).val();
+                    data[ref] = values;
+                }
+                else if(refs[ref].refs.item.dataset.type=='editor'){
+                    let value = refs[ref].refs.item.editor.getData();
+                    data[ref] = value;
+                }
+                else{
+                    data[ref] = refs[ref].refs.item.value;
+                }
+            }
+        });
+
+        return data;
+    }
+
     destroy(e){
-        // let id = e.currentTarget.attributes['data-id'].value;
-        // let url = `${Config.getHost()}/admin/fa/brands/del/${id}`;
         let result = window.confirm(Lang('public.Are you sure you want to delete?'));
         let url = `${Config.getHost()}`+e.currentTarget.attributes['data-url'].value;
         if(result == true){
-            // alert('deleting record');
             const options = {
                 url,
                 method: "POST",
@@ -185,22 +231,18 @@ class Data{
             axios(options)
                 .then((response)=>{
                     let rand = Math.random()*10000;
-                    // NotificationManager.success('داده ی مورد نظر حذف گردید!!', 'پیغام', 5000);
                     NotificationManager.success(response.data, 'پیغام', 5000);
                     this.props.history.push(this.props.history.location.pathname+`?${rand}`);
                 })
                 .catch((error)=>{
                     if(error.response.status == 404){
-                        // alert('رکورد مورد نظر یافت نشد، احتمالا قبلا حذف گردیده است!!');
                         NotificationManager.error(Lang('public.The record was not found, probably deleted already'), 5000);
                         this.render();
                     }
                 })
         }
         else{
-            // alert('reject');
             this.props.history.push(this.props.history.location.pathname+`?${rand}`);
-
         }
     }
 
@@ -254,34 +296,6 @@ class Data{
                     callback();
                 }
             });
-    }
-
-    archive(e)
-    {
-        let result = window.confirm(Lang('Move the ad to the archive list?'));
-        let url = `${Config.getHost()}`+e.currentTarget.attributes['data-url'].value;
-        if(result == true){
-            const options = {
-                url,
-                method: "POST",
-                header: {
-                    'content-type': 'multipart/form-data'
-                }
-            }
-            axios(options)
-            .then((response)=>{
-                let rand = Math.random()*10000;
-                // NotificationManager.success('داده ی مورد نظر حذف گردید!!', 'پیغام', 5000);
-                NotificationManager.success(response.data, 'پیغام', 5000);
-                this.props.history.push(this.props.history.location.pathname+`?${rand}`);
-            })
-            .catch((error)=>{
-                if(error.response.status == 422){
-                    alert(Lang('You can only archive verified ads!'));
-                    this.render();
-                }
-            })
-        }
     }
 }
 

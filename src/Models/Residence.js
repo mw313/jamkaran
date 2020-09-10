@@ -1,7 +1,7 @@
 var Waterline = require('waterline');
 
 var ResidentCollection = Waterline.Collection.extend({
-    identity: 'resident',
+    identity: 'residence',
     datastore: 'default',
     primaryKey: 'id',
   
@@ -12,7 +12,7 @@ var ResidentCollection = Waterline.Collection.extend({
       // Add a reference to User
       users: {
         collection: 'users',
-        via: 'resident'
+        via: 'residence'
       }
     }
   });

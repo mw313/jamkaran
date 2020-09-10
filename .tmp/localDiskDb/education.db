@@ -1,0 +1,11 @@
+{"title":"بیسواد","id":1,"_id":1}
+{"title":"نهضت سواد آموزی","id":2,"_id":2}
+{"title":"ابتدایی","id":3,"_id":3}
+{"title":"سیکل","id":4,"_id":4}
+{"title":"دیپلم","id":5,"_id":5}
+{"title":"کاردانی","id":6,"_id":6}
+{"title":"کارشناسی","id":7,"_id":7}
+{"title":"کارشناسی ارشد","id":8,"_id":8}
+{"title":"دکترا","id":9,"_id":9}
+{"title":"حوزوی","id":10,"_id":10}
+{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

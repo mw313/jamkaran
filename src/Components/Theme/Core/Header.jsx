@@ -12,7 +12,7 @@ class Header extends Component{
                             <a className="nav-link navbar-toggler layout-toggler" href="#">&#9776;</a>
                         </li>
 
-                        <li className="nav-item p-x-1">
+                        {/* <li className="nav-item p-x-1">
                             <a className="nav-link" href="#">داشبورد</a>
                         </li>
                         <li className="nav-item p-x-1">
@@ -20,9 +20,9 @@ class Header extends Component{
                         </li>
                         <li className="nav-item p-x-1">
                             <a className="nav-link" href="#">Settings</a>
-                        </li>
+                        </li> */}
                     </ul>
-                    <ul className="nav navbar-nav pull-left hidden-md-down">
+                    <ul className="nav navbar-nav pull-left hidden-md-down" style={{display: "none"}}>
                         <li className="nav-item">
                             <a className="nav-link aside-toggle" href="#"><i className="icon-bell"></i><span className="tag tag-pill tag-danger">5</span></a>
                         </li>

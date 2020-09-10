@@ -7,4 +7,6 @@ export * from "./Marital";
 export * from "./Housing";
 export * from "./Gender";
 export * from "./Education";
+export * from "./Poushesh";
+export * from "./Need";
 export * from "./config";

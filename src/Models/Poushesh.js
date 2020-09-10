@@ -1,7 +1,7 @@
 var Waterline = require('waterline');
 
-var UserDependantCollection = Waterline.Collection.extend({
-    identity: 'userDependant',
+var PousheshCollection = Waterline.Collection.extend({
+    identity: 'poushesh',
     datastore: 'default',
     primaryKey: 'id',
   
@@ -10,11 +10,11 @@ var UserDependantCollection = Waterline.Collection.extend({
       title: {type:'string'},
   
       // Add a reference to User
-      user: {
-        model: 'users',
-        columnName: 'user_id'
+      users: {
+        collection: 'users',
+        via: 'poushesh'
       }
     }
   });
 
-  export {UserDependantCollection}
+  export {PousheshCollection}

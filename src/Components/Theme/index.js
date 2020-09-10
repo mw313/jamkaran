@@ -13,6 +13,7 @@ export * from './Forms/Input';
 export * from './Forms/Select2';
 export * from './Forms/Textarea';
 export * from './Forms/Tab';
+export * from './Forms/Radio';
 
 export * from './Tools/Alert';
 export * from './Tools/Cookies';
@@ -24,3 +25,5 @@ export * from './Tools/Paging';
 export * from './Tools/Pic';
 export * from './Tools/Pluralize';
 export * from './Tools/Tools';
+export * from './Tools/Lang';
+export * from './Tools/Seperator';

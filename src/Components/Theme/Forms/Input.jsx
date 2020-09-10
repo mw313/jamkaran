@@ -12,10 +12,13 @@ export class Input extends Element {
         let divError = this.checkError();
         let {rand, previousRef} = this.state;
 
-        // console.log(this.state.previousRef);
-
         let helpDiv = '';
         let requiredDiv = '';
+
+        let placeholderBase = "لطفا «:title» را وارد نمایید";
+        placeholderBase = placeholderBase.replace(':title', label);
+
+        if(!placeholder) placeholder = placeholderBase;
 
         if(required == "true")
         {
@@ -24,7 +27,7 @@ export class Input extends Element {
         if(help != undefined)
         {
             // helpDiv = <div className='alert alert-primary'> {help}</div>;
-            helpDiv = <a href='#'  alt={help}><i class="fa fa-question-circle" aria-hidden="true"></i></a>;
+            helpDiv = <a href='#'  alt={help}><i className="fa fa-question-circle" aria-hidden="true"></i></a>;
         }
 
         if(type=="hidden"){
@@ -36,12 +39,11 @@ export class Input extends Element {
                 />
             )
         }
-
-        let labelTranslated = label;
+        
         return(
-            <div className = {className}>
-                <label className={"form-group has-float-label "}>
-                    <input className={"form-control "+inputClassName}
+            <div className={"form-group "+className}>
+                <label htmlFor="name">{label}</label>
+                <input className={"form-control "+inputClassName}
                            defaultValue = {defaultValue}
                            key={'input'+rand}
                            ref='item'
@@ -55,13 +57,11 @@ export class Input extends Element {
                            maxLength={maxlength}
                            {...options}
                     />
-                    <span>
-                        {requiredDiv}
-                        {labelTranslated}
-                        {helpDiv}
-                    </span>
-                    {divError}
-                </label>
+                <span>
+                    {requiredDiv}
+                    {helpDiv}
+                </span>
+                {divError}
             </div>
         );
     }

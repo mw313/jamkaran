@@ -5,7 +5,8 @@ import JsxParser from 'react-jsx-parser';
 import {Link} from 'react-router-dom';
 import {NotificationManager} from 'react-notifications';
 
-import {Config, Lang, Paging, Icon, Pic, CheckList, DataObj, Cookies, Access} from './../index';
+import {Lang, Paging, Icon, Pic, CheckList, DataObj, Cookies, Access} from './../index';
+import Config from './../../Config';
 
 /**
  * Grid Class
@@ -130,6 +131,14 @@ class Grid extends Component{
           }
       }
 
+      const params = {
+            page:     page,
+            number:   this.state.perPage,
+            sort:     this.state.sort,
+            sortType: this.state.sortType,
+            search:   this.state.search
+        };
+
       this.setNewValues();
 
       axios(options)
@@ -209,8 +218,8 @@ class Grid extends Component{
       const del = this.delete;
       return <JsxParser
           key={Math.random()*1000}
-          bindings={{...items}}
-          // bindings={items}
+        //   bindings={{...items}}
+          bindings={items}
           components={{ Link, Config, Icon, Pic,CheckList }}
           jsx={str}
       />
@@ -224,20 +233,20 @@ class Grid extends Component{
           $('#newDIV').css("display", "inline");
           $('#newBTN').attr("href", insertLink);
 
-          if(insertLabel){
-              //__________ labels translate ______________
-                  let labels = insertLabel.split('-');
-                  let labelTranslate='';
-                  if((labels.length)>0)
-                  {
-                      labels.forEach((slice)=>{
-                          labelTranslate += Lang('public.'+slice);
-                          labelTranslate += " ";
-                      });
-                  }
+        //   if(insertLabel){
+        //       //__________ labels translate ______________
+        //           let labels = insertLabel.split('-');
+        //           let labelTranslate='';
+        //           if((labels.length)>0)
+        //           {
+        //               labels.forEach((slice)=>{
+        //                   labelTranslate += Lang('public.'+slice);
+        //                   labelTranslate += " ";
+        //               });
+        //           }
 
-              $('#newBTN').html((labelTranslate==''?Lang('public.'+insertLabel):labelTranslate));
-          }
+        //       $('#newBTN').html((labelTranslate==''?Lang('public.'+insertLabel):labelTranslate));
+        //   }
       }
 
       return(
@@ -294,7 +303,7 @@ class Grid extends Component{
                                                     // console.log(col.field);
                                                     return (<td key={index}>
                                                         {/* <div dangerouslySetInnerHTML={{__html: columns[col].replace(/:id/g, item.id)}}></div> */}
-                                                        {this.toJSX(col.field, {this:this, item:item, ...col.bindings})}
+                                                        {this.toJSX(col.field, Object.assign( {}, {this:this, item:item}, col.bindings ))}
                                                     </td>)
                                                 }
                                             }

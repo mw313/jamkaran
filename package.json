@@ -29,10 +29,12 @@
         ]
       },
       "electronPackagerConfig": {
-        "packageManager": "yarn"
+        "packageManager": "yarn",
+        "icon": "./src/assets/media/images/logo"
       },
       "electronWinstallerConfig": {
-        "name": "jamkaran"
+        "name": "jamkaran",
+        "icon": "./src/assets/media/images/logo"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
@@ -47,13 +49,19 @@
     }
   },
   "dependencies": {
+    "axios": "^0.20.0",
+    "babel-preset-stage-2": "^6.24.1",
     "electron-compile": "^6.4.4",
     "electron-devtools-installer": "^2.1.0",
+    "electron-localstorage": "^1.0.5",
     "electron-squirrel-startup": "^1.0.0",
+    "jquery": "^3.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-fast-compare": "^3.2.0",
     "react-hot-loader": "^3.0.0-beta.6",
+    "react-jsx-parser": "^1.25.1",
+    "react-notifications": "^1.6.0",
     "react-router-dom": "^5.2.0",
     "sails-disk": "^2.1.0",
     "sails-nedb": "^0.10.1-a3",

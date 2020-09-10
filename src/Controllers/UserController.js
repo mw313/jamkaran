@@ -1,37 +1,91 @@
-import {loadDB} from "../Models/adapter";
+import {remote} from 'electron';
+var models = remote.getGlobal('models')
+// import {loadDB} from "../Models/adapter";
+// const remote = require('electron').remote;
 
 class UserController {
-    static index(filters = {}, component) {
-        loadDB( async (models)=>{
-            let {User} = models;
-            let users = await User.find(filters);
-            console.log(users);
-            component.setState({users});
-        });
+    static async index(filters = {}, component) {
+        let {User} = models;
+        console.log(User);
+        let users = await User.find(filters).populate(['residence', 'status']);
+        component.setState({users});
     }
 
-    static create(data, component){
-        loadDB( async (models)=>{
-            let {User} = models;
-            let user = await User.create(data);
-            component.setState({saved: true});
-        });
+    static async create(data, component){        
+        let {User} = models;
+        let user = await User.create(data);
+        console.log(data);
+        component.setState({saved: true});
     }
 
-    static update(data, id, component){
-        loadDB( async (models)=>{
-            let {User} = models;
-            let user = await User.create(data);
-            component.setState({saved: true});
-        });
+    static async needles(component){
+        let {Status, Housing, Marital, Residence, Need, Poushesh, Education, Gender} = models;
+
+        let needle = {};
+        needle.status    = await Status.find({});
+        needle.housing   = await Housing.find({});
+        needle.marital   = await Marital.find({});
+        needle.residence = await Residence.find({});
+        needle.need      = await Need.find({});
+        needle.poushesh  = await Poushesh.find({});
+        needle.education = await Education.find({});
+        needle.gender    = await Gender.find({});
+
+        // console.log("models");
+        // console.log( needle );
+
+        component.setState({needles:needle});
     }
 
-    static delete(id, component){
-        loadDB( async (models)=>{
-            let {User} = models;
-            let user = await User.create(data);
-            component.setState({saved: true});
-        });
+    static async seed(component){
+        let {Status, Housing, Marital, Residence, Need, Poushesh, Education} = models;
+        // let user = await User.create(data);
+        await Marital.create({"title":"مجرد"});
+        await Marital.create({"title":"متاهل"});
+        await Marital.create({"title":"مطلقه"});
+        await Marital.create({"title":"همسر فوت کرده"});            
+        
+        await Status.create({"title":"سفید"});
+        await Status.create({"title":"زرد"});
+        await Status.create({"title":"قرمز"});
+
+        await Housing.create({"title":"مالک"});
+        await Housing.create({"title":"مستاجر"});
+        await Housing.create({"title":"منزل پدری"});
+        await Housing.create({"title":"منزل فرزند"});
+        
+        await Residence.create({"title":"بومی"});
+        await Residence.create({"title":"غیر بومی"});
+        
+        await Need.create({"title":"دارد"});
+        await Need.create({"title":"ندارد"});
+        
+        await Poushesh.create({"title":"تامین اجتماعی"});
+        await Poushesh.create({"title":"اداره بهزیستی"});
+        
+        await Education.create({"title":"بیسواد"});
+        await Education.create({"title":"نهضت سواد آموزی"});
+        await Education.create({"title":"ابتدایی"});
+        await Education.create({"title":"سیکل"});
+        await Education.create({"title":"دیپلم"});
+        await Education.create({"title":"کاردانی"});
+        await Education.create({"title":"کارشناسی"});
+        await Education.create({"title":"کارشناسی ارشد"});
+        await Education.create({"title":"دکترا"});
+        await Education.create({"title":"حوزوی"});
+        // component.setState({saved: true});
+    }
+
+    static async update(data, id, component){
+        let {User} = models;
+        let user = await User.create(data);
+        component.setState({saved: true});
+    }
+
+    static async delete(id, component){
+        let {User} = models;
+        let user = await User.create(data);
+        component.setState({saved: true});        
     }
 }
 

@@ -1,81 +1,57 @@
 var Waterline = require('waterline');
-var waterline = new Waterline();
+// var storage = require('electron-localstorage');
+let waterline = new Waterline();
 
 import {config, UserCollection, StatusCollection, GenderCollection, EducationCollection,
-        HousingCollection, MaritalCollection, ResidentCollection, UserDependantCollection} from './index';
+        HousingCollection, MaritalCollection, ResidentCollection, UserDependantCollection, 
+        NeedCollection, PousheshCollection} from './index';
 
 waterline.registerModel(UserCollection);
-// waterline.registerModel(UserDependantCollection);
+waterline.registerModel(UserDependantCollection);
 waterline.registerModel(StatusCollection);
-// waterline.registerModel(GenderCollection);
-// waterline.registerModel(EducationCollection);
-// waterline.registerModel(HousingCollection);
-// waterline.registerModel(MaritalCollection);
-// waterline.registerModel(ResidentCollection);
+waterline.registerModel(GenderCollection);
+waterline.registerModel(EducationCollection);
+waterline.registerModel(HousingCollection);
+waterline.registerModel(MaritalCollection);
+waterline.registerModel(ResidentCollection);
+waterline.registerModel(NeedCollection);
+waterline.registerModel(PousheshCollection);
 
+// const loadDB = (calback) => {
+const loadDB = (glob) => {
+    // let models = JSON.parse(storage.getItem('Models'));
+    // console.log("models");
+    // console.log(models);
+    // if(models == undefined || models == "" || models == null){
+        waterline.initialize(config, (err, ontology)=>{
+            if (err) {
+                console.error(err);
+                return;
+            }
+            models = {
+                User:          ontology.collections.users,
+                Status:        ontology.collections.status,
+                UserDependant: ontology.collections.userDependant,
+                Housing:       ontology.collections.housing,
+                Gender:        ontology.collections.gender,
+                Marital:       ontology.collections.marital,
+                Residence:     ontology.collections.residence,
+                Need:          ontology.collections.need,
+                Poushesh:      ontology.collections.poushesh,
+                Education:     ontology.collections.education,
+            };
 
-const loadDB = (calback) => {
-    // console.log(Waterline.getModel);
-    
-    waterline.initialize(config, (err, ontology)=>{
-        if (err) {
-            console.error(err);
-            return;
-        }
-        let models = {
-            User: ontology.collections.users,
-            Status: ontology.collections.status,
-        };
-
-        calback(models);
-    });    
+            // console.log("models-init");
+            // console.log(models);
+            // storage.setItem('Models', models);
+            // storage.setItem('Models', JSON.stringify(models));
+            // storage.setItem('Models', 'mmnjj');
+            glob.models = models;
+            // calback(models);
+        });
+    // }else{
+    //     calback(models);
+    // }
 }
 
 export {loadDB};
-
-/*==========================================================================================
-
-Waterline.getModel('user', orm);
-
-export const test = ()=>{
-    waterline.initialize(config, (err, ontology)=>{
-        if (err) {
-            console.error(err);
-            return;
-        }
-
-        // Tease out fully initialized models.
-        var User = ontology.collections.user;
-        var Pet = ontology.collections.pet;
-
-        // Since we're using `await`, we'll scope our selves an async IIFE:
-        (async ()=>{
-            // First we create a user
-            var user = await User.create({
-                firstName: 'Neil',
-                lastName: 'Armstrong'
-            });
-
-            // Then we create the pet
-            var pet = await Pet.create({
-                breed: 'beagle',
-                type: 'dog',
-                name: 'Astro',
-                owner: user.id
-            });
-
-            // Then we grab all users and their pets
-            var users = await User.find().populate('pets');
-            console.log(users);
-        })()
-        .then(()=>{
-            console.error('All done!!');
-        })
-        .catch((err)=>{
-            console.error(err);
-        });//_∏_
-    });
-
-}
-
-*/

@@ -4,6 +4,12 @@ class Dashboard extends Component{
     render(){
         return (
             <React.Fragment>
+                <div className="jamkaran_mosque">                    
+                </div>
+            </React.Fragment>
+        );
+        return (
+            <React.Fragment>
             <div className="col-sm-6 col-lg-3">
                 <div className="card card-inverse card-primary">
                     <div className="card-block p-b-0">
