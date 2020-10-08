@@ -14,6 +14,7 @@ class Element extends Component{
         let changedProps = [];
         let propsNeedsTocheck = ['defaultValue', 'label', 'children', 'error', 'className', 'data', 'multiple'];
 
+        // propsNeedsTocheck.every((key)=>{
         propsNeedsTocheck.forEach((key)=>{
             if(typeof nextProps[key] != typeof this.props[key]) {
                 changed = true;
@@ -63,8 +64,15 @@ class Element extends Component{
                     this.getCurrentRef();
                 }
             }
+
+            if(changed){
+                this.state.rand = Math.ceil(Math.random()*1000);
+                return changed;
+            }
+
         });
-        // console.log(changed);
+
+        // if(changed) this.state.rand = Math.ceil(Math.random()*1000);
 
         return(changed);
     }

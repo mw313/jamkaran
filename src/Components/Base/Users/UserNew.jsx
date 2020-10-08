@@ -6,7 +6,8 @@ class UserNew extends Component{
     constructor(props){
         super(props);
         this.state = {
-            needles: {status:[], housing:[], marital:[], residence:[], need:[], poushesh:[], education:[], gender:[]}
+            needles: {status:[], housing:[], marital:[], residence:[], need:[], poushesh:[], education:[], gender:[]},
+            item: null
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.save = this.save.bind(this);
@@ -18,13 +19,15 @@ class UserNew extends Component{
     
     save(){
         let data = Data.getRefs(this);
-        console.log(data);
+        // console.log(data);
         UserController.create(data, this);
     }
 
     render(){
         let {status, housing, marital, residence, need, poushesh, education, gender} = this.state.needles;
-        let item = {"firstname":"علی","lastname":"علوی","father_name":"محمد","form_code":0,"rabet_code":125,
+        let {item} = this.state;
+        if(item == null)
+        item = {"firstname":"علی","lastname":"علوی","father_name":"محمد","form_code":0,"rabet_code":125,
                           "shenasname_code":"22535","meli_code":"0215","birth_date":"1380","birth_place":"قم","takafol_number":5,"address":"455",
                           "phone":"09191919","mobile":"1213546","house_price":"250000","education_field":"121","job":"آزاد","job_name":"بنا",
                           "job_side":"عادی","job_phone":"223232","job_address":"قم، امام","job_income":"250000","arzyab":545,
@@ -32,6 +35,8 @@ class UserNew extends Component{
                           "house_status":1,"residence_status":1,"poushesh_status":1,"education_status":1,"need_materials_id":2,"need_moshaver_id":1,
                           "need_farhangi_id":1,"need_job_id":1,"need_doktor_id":1,"need_amozesh_id":1,"need_manavi_id":1,"_id":1}
 
+        console.log("item");
+        console.log(item);
         return (
             <Card title="متقاضی جدید">
                 <div className="row">

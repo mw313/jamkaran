@@ -17,10 +17,7 @@ class UserList extends Component{
                 {label: "وضعیت", sort:true, field: "status.title"},
                 // {label: "جنسیت", sort:true, field: "gender.title"},
                 {label: "عملیات", sort:false,
-                    field: `<Icon to={"/cities/"+item.id+"/edit"} materialIcon="edit" title="edit" />
-                            <Icon url={"/cities/"+item.id} id={item.id} click={destroy}
-                                displayIf={item.ngos_count+"==0"}
-                                materialIcon="delete"  title="delete" />`,
+                    field: `<Icon to={"/userEdit/"+item.id+"/edit"} materialIcon="edit" title="edit" />`,
                     width:"80px",
                 },
             ],

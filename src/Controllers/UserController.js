@@ -8,7 +8,6 @@ import axios from "axios";
 class UserController {
     static async index(filters = {}, component) {
         let {User} = models;
-        // console.log(filters);
         
         let search = {};
         let word = filters.search, wordNum = parseInt(filters.search);
@@ -22,7 +21,7 @@ class UserController {
                     ]
                 }
             };
-            
+
             if(Number.isInteger(wordNum)){
                 search.where.or.push({mobile: {contains: wordNum}});
                 search.where.or.push({meli_code: {contains: wordNum}});
@@ -37,9 +36,8 @@ class UserController {
         sort[filters.sort] = filters.sortType;
         search.sort = [];
         search.sort.push(sort);
-
-        console.log('search');
-        console.log(search);
+        // console.log('search');
+        // console.log(search);
 
         let users = await User.find(search)
                               .paginate({page: filters.page-1, limit: filters.number})
@@ -91,6 +89,15 @@ class UserController {
         // console.log( needle );
 
         component.setState({needles:needle});
+    }
+
+    static async show(id, component){
+        let {User} = models;
+
+        let user = await User.find({id: id});
+        console.log("user");
+        console.log(user);
+        component.setState({item: user[0]});
     }
 
     static async seed(component){
