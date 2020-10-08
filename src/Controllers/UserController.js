@@ -1,20 +1,76 @@
 import {remote} from 'electron';
 var models = remote.getGlobal('models')
+// import { useHistory } from 'react-router-dom';
 // import {loadDB} from "../Models/adapter";
+import axios from "axios";
 // const remote = require('electron').remote;
 
 class UserController {
     static async index(filters = {}, component) {
         let {User} = models;
-        console.log(User);
-        let users = await User.find(filters).populate(['residence', 'status']);
-        component.setState({users});
+        // console.log(filters);
+        
+        let search = {};
+        let word = filters.search, wordNum = parseInt(filters.search);
+        
+        if(filters.search != ""){
+            search = {
+                where: {
+                    or: [
+                        {lastname: {contains: word}}, 
+                        {firstname: {contains: word}},
+                    ]
+                }
+            };
+            
+            if(Number.isInteger(wordNum)){
+                search.where.or.push({mobile: {contains: wordNum}});
+                search.where.or.push({meli_code: {contains: wordNum}});
+            }
+        }
+
+        if(filters.sort == "") filters.sort = "id";
+        if(filters.sortType == "") filters.sortType = "ASC";
+
+        // search.sort = `${filters.sort} ${filters.sortType}`;
+        let sort = {};
+        sort[filters.sort] = filters.sortType;
+        search.sort = [];
+        search.sort.push(sort);
+
+        console.log('search');
+        console.log(search);
+
+        let users = await User.find(search)
+                              .paginate({page: filters.page-1, limit: filters.number})
+                              .populate(['residence', 'status']);
+        let numbers = await User.find(search);
+        let info = {
+            current_page: filters.page, 
+            last_page: Math.ceil(numbers.length/filters.number), 
+            from: (filters.page-1)*filters.number + 1}
+
+        component.setState({items: users, pageInfo:info});
     }
 
     static async create(data, component){        
         let {User} = models;
+
+        let relationFields = ['housing', 'gender', 'status', 'marital', 'residence', 'tavanaei', 'poushesh', 'education',
+                     'need_materials', 'need_moshaver', 'need_farhangi', 'need_job', 'need_doktor', 'need_amozesh',
+                     'need_manavi'];
+        relationFields.forEach(element => {
+            if(data[element] == ""||data[element] == "-") data[element] = 100
+        });
+
+        let notNullStrings = ['need_materials_detail', 'need_doktor_detail'];
+        notNullStrings.forEach(element => {
+            if(data[element] == ""||data[element] == undefined) data[element] = '';
+        });
+
         let user = await User.create(data);
-        console.log(data);
+
+        component.props.history.push("/userLists");
         component.setState({saved: true});
     }
 
@@ -74,6 +130,16 @@ class UserController {
         await Education.create({"title":"دکترا"});
         await Education.create({"title":"حوزوی"});
         // component.setState({saved: true});
+    }
+
+    static convert(){
+        axios.get('http://www.ikvu.ac.ir/main/videoChat/test.php')
+             .then((response)=>{
+                    console.log(response.data);
+                    response.data.map((item)=>{
+                        UserController.create(item);
+                    });
+                });
     }
 
     static async update(data, id, component){

@@ -30,7 +30,7 @@ const Paging = (props) => {
     }
 
     for(let j=fromPage; j<=toPage; j++)
-    li.push(<li key={j} className={current_page==j?"aginate_button page-item active":"aginate_button page-item"}>
+    li.push(<li key={j} className={current_page==j?"page-item active":"page-item"}>
                 <a className="page-link" onClick={()=>props.pagingHandler(j)}> {j} </a>
             </li>) ;
 
@@ -42,26 +42,26 @@ const Paging = (props) => {
         <div className="row view-pager">
             <div className="col-sm-10">
                 <div className="text-center">
-                    <div className="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                        <ul className="pagination pagination-sm">
-                            <li className={(current_page != 1)? "paginate_button page-item previous":"paginate_button page-item previous disabled"} id="DataTables_Table_0_previous" title="صفحه ی قبل">
+                    <div className="Page navigation example" id="DataTables_Table_0_paginate">
+                        <ul className="pagination pg-blue">
+                            <li className={(current_page != 1)? "page-item previous":"page-item previous disabled"} id="DataTables_Table_0_previous" title="صفحه ی قبل">
                                 <a aria-controls="DataTables_Table_0" onClick={()=>current_page == 1?"":props.pagingHandler(1)} data-dt-idx="0" tabIndex="0" className="page-link prev">
                                     <i className="flaticon-last"></i>
                                 </a>
                             </li>
-                            <li className={(current_page != 1)? "paginate_button page-item previous":"paginate_button page-item previous disabled"} id="DataTables_Table_0_previous" title="صفحه ی قبل">
+                            <li className={(current_page != 1)? "page-item previous":"page-item previous disabled"} id="DataTables_Table_0_previous" title="صفحه ی قبل">
                                 <a aria-controls="DataTables_Table_0" onClick={()=>!previous?"":props.pagingHandler(previous)} data-dt-idx="0" tabIndex="0" className="page-link prev">
                                     <i className="flaticon-next"></i>
                                 </a>
                             </li>
                             {li}
-                            <li className={(current_page != last_page)? "paginate_button page-item previous":"paginate_button page-item previous disabled"} id="DataTables_Table_0_next">
+                            <li className={(current_page != last_page)? "page-item previous":"page-item previous disabled"} id="DataTables_Table_0_next">
                                 <a aria-controls="DataTables_Table_0" data-dt-idx="3" onClick={()=>!next?"":props.pagingHandler(next)}
                                     tabIndex="0" className="page-link next" title="صفحه ی بعد">
                                     <i className="flaticon-prev"></i>
                                 </a>
                             </li>
-                            <li className={(current_page != last_page)? "paginate_button page-item previous":"paginate_button page-item previous disabled"} id="DataTables_Table_0_previous" title="صفحه ی قبل">
+                            <li className={(current_page != last_page)? "page-item previous":"page-item previous disabled"} id="DataTables_Table_0_previous" title="صفحه ی قبل">
                                 <a aria-controls="DataTables_Table_0" onClick={()=>current_page == last_page?"":props.pagingHandler(last_page)} data-dt-idx="0" tabIndex="0" className="page-link prev">
                                     <i className="flaticon-first"></i>
                                 </a>

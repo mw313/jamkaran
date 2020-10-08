@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-import {Data, Lang, Access} from './../index';
+import {Data, Lang} from './../index';
 
 /**
  * Icon Component
@@ -42,7 +42,7 @@ class Icon extends Component{
 
         if(displayIf == undefined) displayIf = "true";
 
-        if(eval(displayIf) && (Access.check(to) || to == undefined))
+        if(eval(displayIf))
             if(to != undefined)
                 return (title!=undefined)?
                     <Link to={path} style={style} className={title!=undefined?'tooltip':""} alt={Lang('public.'+title)}> {icon} </Link>

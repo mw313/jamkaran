@@ -1,3 +1,4 @@
 {"title":"بومی","id":1,"_id":1}
 {"title":"غیر بومی","id":2,"_id":2}
+{"title":"","id":100,"_id":100}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

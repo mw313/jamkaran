@@ -2,4 +2,5 @@
 {"title":"مستاجر","id":2,"_id":2}
 {"title":"منزل پدری","id":3,"_id":3}
 {"title":"منزل فرزند","id":4,"_id":4}
+{"title":"","id":100,"_id":100}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

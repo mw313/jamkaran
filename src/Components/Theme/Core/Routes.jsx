@@ -12,6 +12,7 @@ export class Routes extends React.Component {
       <Route path={'/'} key={1} component={(props)=><Dashboard {...props} />} exact={true} />
       <Route path={'/userLists'} key={2} component={(props)=><UserList {...props} />} exact={true} />
       <Route path={'/userNew'} key={3} component={(props)=><UserNew {...props} />} exact={true} />
+      <Route path={'/userEdit/{id}'} key={3} component={(props)=><UserNew {...props} />} exact={true} />
     </React.Fragment>
     );
   }

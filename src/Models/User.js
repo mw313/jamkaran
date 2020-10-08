@@ -44,14 +44,8 @@ var UserCollection = Waterline.Collection.extend({
       job_address: {type:'string'},
       // comment:"در آمد"
       job_income: {type:'string'},
-
-      // need_materials: {type:'number'},
-      // need_moshaver: {type:'number'},
-      // need_farhangi: {type:'number'},
-      // need_job: {type:'number'},
-      // need_doktor: {type:'number'},
-      // need_amozesh: {type:'number'},
-      // need_manavi: {type:'number'},
+      need_materials_detail: {type:'string', defaultsTo: ''},
+      need_doktor_detail: {type:'string', defaultsTo: ''},
 
       arzyab: {type:'string'},
 
@@ -96,11 +90,10 @@ var UserCollection = Waterline.Collection.extend({
         model: 'Need',
         columnName: 'need_materials_id'
       },
+      
       need_moshaver:{
-        // type: 'INT',
         model: 'Need',
         columnName: 'need_moshaver_id',
-        // type: 'string'
       },
       need_farhangi:{
         model: 'Need',
@@ -129,12 +122,6 @@ var UserCollection = Waterline.Collection.extend({
         collection: 'UserDependant',
         via: 'user'
       },
-      // need_moshaver: {type:'number'},
-      // need_farhangi: {type:'number'},
-      // need_job: {type:'number'},
-      // need_doktor: {type:'number'},
-      // need_amozesh: {type:'number'},
-      // need_manavi: {type:'number'},
 
     }
   });

@@ -8,4 +8,5 @@
 {"title":"کارشناسی ارشد","id":8,"_id":8}
 {"title":"دکترا","id":9,"_id":9}
 {"title":"حوزوی","id":10,"_id":10}
+{"title":"","id":100,"_id":100}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

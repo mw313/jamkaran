@@ -1,0 +1,236 @@
+/************************** CoreUI Theme *************************/
+body{
+    overflow-x: hidden !important;
+}
+body:not(.top-nav) .sidebar{
+    right: 0px;
+}
+
+body:not(.top-nav) .sidebar ul.nav{
+    direction: rtl;
+}
+
+.footer{
+    right: 200px !important;
+}
+
+@media (min-width: 991px){
+    body.mobile-open .sidebar{
+        right: -200px;
+    }
+    
+    body.mobile-open .main{
+        margin-right: 0px;
+    }
+
+    body.mobile-open .footer{
+        right: 0px !important;
+    }
+
+    .main{
+        margin-right: 200px;
+        height: calc(100vh - 124px);
+        width: calc(100% - 200px);
+        overflow: auto;
+    }
+
+    body.mobile-open .main{
+        margin-right: 0px;
+        width: 100%;
+    }
+}
+@media (max-width: 991px){
+    header.navbar {
+        top: 36px !important;
+    }
+
+    .main{
+        /* margin-right: 200px; */
+        height: calc(100vh - 86px);
+        width: calc(100%);
+        overflow: auto;
+    }
+
+    body.mobile-open .main{
+        margin-right: 200px;;
+        width: calc(100% - 200px);
+    }
+}
+
+.main-frame{
+    position: fixed;
+    top: 36px;
+    width: 100%;
+    overflow: auto;
+    height: calc(100vh - 36px);
+    /* height: calc(100vh - 50px); */
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+/****************************** title Bar ************************/
+.title-bar {
+    -webkit-app-region: drag;
+    display: grid;
+    position: fixed;
+    height: 35px;
+    width: 100%;
+    background-color: teal;
+    background-color: #1f213f;
+    color: #ffffff;
+    direction: rtl;
+}
+
+.title-bar .title {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-right: 8px;
+    overflow-x: hidden;
+}
+
+.title-bar .title span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+}
+
+.title-bar-btns {
+    -webkit-app-region: no-drag;
+    display: grid;
+    grid-template-columns: repeat(3, 46px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    font-family: 'Segoe MDL2 Assets';
+    font-size: 10px;
+}
+
+.title-bar-btns .button {
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    cursor: default;
+    opacity: 0.8;
+    color: white;
+}
+
+.title-bar-btns .button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 1;
+}
+
+.title-bar-btns #close-btn:hover {
+    background: #e81123;
+}
+
+.title-bar-btns #min-btn {
+    grid-column: 2;
+}
+
+.title-bar-btns #close-btn {
+    grid-column: 3;
+}
+
+.blur{
+    background-color: rgba(0,0,0, 0.1);
+}
+
+.rtl .list-group, [dir=rtl] .list-group{
+    padding: 8px 10px;
+}
+
+.rtl .list-group, [dir=rtl] .list-group li{
+    cursor: pointer;
+}
+
+/*************** Right Menu *********************/
+.sidebar ul.nav li.nav-title{
+    background-color: #f8cb00;
+    font-size: 14px !important;
+    color: #333 !important;
+}
+
+/*************** Other *********************/
+.card{
+    direction: rtl;
+}
+
+.card-body{
+    padding: 10px 20px;
+}
+
+.form-group{
+    padding: 2px 10px;
+    margin-top: 10px;
+}
+.select2-container--bootstrap .select2-selection--single{
+    direction: rtl;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow{
+    right: auto !important;
+    left: 12px;
+}
+
+.select2-container .select2-selection--single .select2-selection__clear{
+    float: left;
+    margin-left: 10px;
+}
+
+.select2-container--bootstrap .select2-results__option{
+    text-align: right;
+    direction: rtl;
+    min-height: 30px;
+}
+
+hr{
+    border-top: 2px solid #a9a9a9;
+}
+
+button:focus{
+    outline: 0px
+}
+
+.seperator{
+    display: flex;
+}
+
+.seperator hr{
+    width: 98%;
+    border-top: 2px solid #a9a9a9;
+}
+
+.seperator-title{
+    padding: 3px 0px 3px 10px;
+}
+
+.seperator-hr{
+    flex-grow: 1;
+}
+
+.col{
+    display: grid;
+}
+
+header.navbar a.navbar-brand{
+    background-image: url(./../media/images/logo.jpeg) !important;
+    background-size: 50px;
+}
+
+.jamkaran_mosque{
+    background-image: url(./../media/images/IMG20050399.jpg) !important;
+    background-size: 100%;
+    height: 700px;
+    background-repeat: no-repeat;
+}
+
+input[type="radio"]{
+    vertical-align: middle;
+    margin-left: 8px;
+    margin-right: 8px;
+}

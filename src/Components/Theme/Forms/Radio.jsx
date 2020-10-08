@@ -37,6 +37,7 @@ export class Radio extends Element {
                 <label htmlFor="name" className={"col-md-12"}>{label}</label>
                 {
                     Tools.getArray(data).map((item, index)=>{
+                        if(item.title != "")
                         return <div className="radio col-md-6" key={index}>
                             <label>
                                     <input className={"form-control1 "+inputClassName}

@@ -7,7 +7,11 @@ var UserDependantCollection = Waterline.Collection.extend({
   
     attributes: {
       id: {type: 'number', autoMigrations: {autoIncrement: true} },
-      title: {type:'string'},
+      lastName: {type:'string'},
+      melicode: {type:'string'},
+      relation: {type:'string'},
+      job: {type:'string'},
+      age: {type:'string'},
   
       // Add a reference to User
       user: {

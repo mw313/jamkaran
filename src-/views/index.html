@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="Jamkaran Program">
+  <meta name="author" content="Wosughi Mehdi">
+  <meta name="keyword" content="Jamkaran Program">
+  <title>Jamkaran Program</title>
+  <link href="../assets/CoreUI/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../assets/CoreUI/css/simple-line-icons.css" rel="stylesheet">
+  <link href="../assets/CoreUI/dest/style.css" rel="stylesheet">
+  <link href="../assets/select2/select2.min.css" rel="stylesheet">
+  <link href="../assets/select2/select2.bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body className="navbar-fixed sidebar-nav fixed-nav">
+  <header class="title-bar">
+    <div class="title"><span>المستغاث بک یا صاحب الزمان عج</span></div>
+    <div class="title-bar-btns">
+        <span id="close-btn" class="button">&#xE8BB;</span>
+        <span id="min-btn" class="button">&#xE921;</span>
+    </div>
+  </header>
+  <div class="main-frame">
+    <div id="App"></div>
+  </div>
+</body>
+
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+<script src="../assets/CoreUI/js/libs/jquery.min.js"></script>
+<script src="../assets/CoreUI/js/libs/tether.min.js"></script>
+<script src="../assets/CoreUI/js/libs/bootstrap.min.js"></script>
+<script src="../assets/CoreUI/js/libs/Chart.min.js"></script>
+<script src="../assets/select2/select2.js"></script>
+<script src="../assets/CoreUI/js/app.js"></script>
+<script src="../assets/CoreUI/js/views/main.js"></script>
+<script src="../assets/js/window.js"></script>
+
+<script>if (window.module) module = window.module;</script>
+
+<script type="text/jsx">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader';
+
+const render = () => {
+  const App = require('../Components/app').default;
+  ReactDOM.render(<AppContainer><App /></AppContainer>, document.getElementById('App'));
+}
+
+render();
+
+// if (module.hot) {
+//   module.hot.accept(render);
+// }
+</script>
+
+
+</html>
