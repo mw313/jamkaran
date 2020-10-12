@@ -10,7 +10,15 @@ class UserEdit extends UserNew{
 
     componentWillMount(){
         let {id} = this.props.match.params;
+        this.state.id = id;
         UserController.show(id, this);
+    }
+
+    save(){
+        let data = Data.getRefs(this);
+        let {id} = this.state;
+        // console.log(data);
+        UserController.create(data, this);
     }
 }
 

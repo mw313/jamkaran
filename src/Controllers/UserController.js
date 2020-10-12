@@ -151,8 +151,11 @@ class UserController {
 
     static async update(data, id, component){
         let {User} = models;
-        let user = await User.create(data);
-        component.setState({saved: true});
+        let userUpdated = await User.update({id: id})
+            .set(data)
+            .fetch();
+        if(userUpdated.length > 0)
+            component.setState({saved: true});
     }
 
     static async delete(id, component){

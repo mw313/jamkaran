@@ -17,7 +17,7 @@ class UserList extends Component{
                 {label: "وضعیت", sort:true, field: "status.title"},
                 // {label: "جنسیت", sort:true, field: "gender.title"},
                 {label: "عملیات", sort:false,
-                    field: `<Icon to={"/userEdit/"+item.id+"/edit"} materialIcon="edit" title="edit" />`,
+                    field: `<Icon to={"/users/"+item.id+"/edit"} materialIcon="edit" title="edit" />`,
                     width:"80px",
                 },
             ],

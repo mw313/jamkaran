@@ -28,12 +28,8 @@ class Icon extends Component{
     render(){
 
         let {click, url, message, to, materialIcon, iconClass, id, displayIf, style, iconStyle, title, prefix} = this.props;
-        // console.log("this.state.prefix");
         // let path = prefix!=undefined?prefix:this.state.prefix+to;
         let path = to;
-        // console.log(path);
-
-
         let icon = '';
 
         if(materialIcon != undefined)

@@ -17,10 +17,10 @@ class Sidebar extends Component{
                             مدیریت کاربران
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/userLists">
+                            <Link className="nav-link" to="/users">
                                 <i className="icon-user-follow"></i> لیست متقاضیان
                             </Link>
-                            <Link className="nav-link" to="/userNew">
+                            <Link className="nav-link" to="/users/new">
                                 <i className="icon-people"></i> متقاضی جدید
                             </Link>
                         </li>
