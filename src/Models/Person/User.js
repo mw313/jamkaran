@@ -118,8 +118,14 @@ var UserCollection = Waterline.Collection.extend({
         model: 'Need',
         columnName: 'need_manavi_id'
       },
+      
       userDependant:{
         collection: 'UserDependant',
+        via: 'user'
+      },
+
+      userPlans:{
+        collection: 'userPlans',
         via: 'user'
       },
 

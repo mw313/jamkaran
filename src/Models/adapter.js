@@ -4,7 +4,8 @@ let waterline = new Waterline();
 
 import {config, UserCollection, StatusCollection, GenderCollection, EducationCollection,
         HousingCollection, MaritalCollection, ResidentCollection, UserDependantCollection, 
-        NeedCollection, PousheshCollection} from './index';
+        NeedCollection, PousheshCollection, PlanCollection, UserPlanCollection, 
+        PlanExecuteStatusCollection, PayStatusCollection} from './index';
 
 waterline.registerModel(UserCollection);
 waterline.registerModel(UserDependantCollection);
@@ -16,8 +17,11 @@ waterline.registerModel(MaritalCollection);
 waterline.registerModel(ResidentCollection);
 waterline.registerModel(NeedCollection);
 waterline.registerModel(PousheshCollection);
+waterline.registerModel(PlanExecuteStatusCollection);
+waterline.registerModel(PayStatusCollection);
+waterline.registerModel(PlanCollection);
+waterline.registerModel(UserPlanCollection);
 
-// const loadDB = (calback) => {
 const loadDB = (glob) => {
     // let models = JSON.parse(storage.getItem('Models'));
     // console.log("models");
@@ -39,6 +43,11 @@ const loadDB = (glob) => {
                 Need:          ontology.collections.need,
                 Poushesh:      ontology.collections.poushesh,
                 Education:     ontology.collections.education,
+
+                Plan:          ontology.collections.plans,
+                UserPlans:     ontology.collections.userPlans,
+                PayStatus:     ontology.collections.payStatus,
+                PlanExecuteStatus:     ontology.collections.planExecuteStatus,
             };
 
             // console.log("models-init");

@@ -1,12 +1,19 @@
 export * from "./adapter";
-export * from "./User";
-export * from "./UserDependants";
-export * from "./Status";
-export * from "./Residence";
-export * from "./Marital";
-export * from "./Housing";
-export * from "./Gender";
-export * from "./Education";
-export * from "./Poushesh";
-export * from "./Need";
 export * from "./config";
+
+export * from "./Person/User";
+export * from "./Person/UserDependants";
+export * from "./Person/Status";
+export * from "./Person/Residence";
+export * from "./Person/Marital";
+export * from "./Person/Housing";
+export * from "./Person/Gender";
+export * from "./Person/Education";
+export * from "./Person/Poushesh";
+export * from "./Person/Need";
+
+export * from "./Plan/PayStatus";
+export * from "./Plan/Plan";
+export * from "./Plan/PlanExecuteStatus";
+export * from "./Plan/UserPlan";
+
