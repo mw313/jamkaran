@@ -18,7 +18,7 @@ class Sidebar extends Component{
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/users">
-                                <i className="icon-user-follow"></i> لیست متقاضیان
+                                <i className="icon-user-follow"></i> فهرست متقاضیان
                             </Link>
                             <Link className="nav-link" to="/users/new">
                                 <i className="icon-people"></i> متقاضی جدید
@@ -33,11 +33,18 @@ class Sidebar extends Component{
                         </li>
 
                         <li className="nav-title">
-                            طرح های کمک رسانی
+                            طرح های خیریه
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#"><i className="icon-people"></i> طرح ها </a>
-                            <a className="nav-link" href="#"><i className="icon-docs"></i> افراد مشمول </a>
+                            <Link className="nav-link" to="/plans">
+                                <i className="icon-people"></i> فهرست طرح ها
+                            </Link>
+                            <Link className="nav-link" to="/plans">
+                                <i className="icon-people"></i> طرح جدید
+                            </Link>
+                            <Link className="nav-link" to="/users">
+                                <i className="icon-people"></i> افراد مشمول
+                            </Link>
                         </li>
                     </ul>
                 </nav>

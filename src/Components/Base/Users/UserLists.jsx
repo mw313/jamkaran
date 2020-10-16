@@ -6,8 +6,6 @@ class UserList extends Component{
     constructor(props){
         super(props);        
         this.state = {
-            url:`/cities`,
-            users: [],
             columns: [
                 {label: "نام و نام خانوادگی", sort:true, field: "<span>{item.lastname} {item.firstname}</span>"},
                 {label: "کدملی", sort:true, field: "meli_code"},
@@ -38,7 +36,7 @@ class UserList extends Component{
     
     render(){
         return (
-            <Card title="لیست متقاضیان">
+            <Card title="فهرست متقاضیان">
                 <div>
                     <Grid {...this.state} />
                 </div>

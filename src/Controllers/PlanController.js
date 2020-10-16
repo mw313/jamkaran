@@ -1,13 +1,14 @@
 import {remote} from 'electron';
 var models = remote.getGlobal('models')
 import axios from "axios";
+import {QueryBuilder} from './index';
 
 class PlanController {
     static async index(filters = {}, component) {
         let {Plan} = models;
         let serachIn = {
-            strings:['lastname', 'firstname'],
-            numbers:['mobile', 'meli_code'],
+            strings:['title', 'startDate', 'totalCost', 'packetCost'],
+            // numbers:['mobile', 'meli_code'],
         };
         let search = QueryBuilder.processFilter(filters, serachIn);
         let result = await QueryBuilder.findIn(Plan, filters, search);
