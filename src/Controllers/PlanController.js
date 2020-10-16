@@ -34,8 +34,6 @@ class PlanController {
         sort[filters.sort] = filters.sortType;
         search.sort = [];
         search.sort.push(sort);
-        // console.log('search');
-        // console.log(search);
 
         let users = await User.find(search)
                               .paginate({page: filters.page-1, limit: filters.number})

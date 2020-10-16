@@ -1,5 +1,5 @@
 class QueryBuilder{
-    static proccessFilter(filters, searchFields){
+    static processFilter(filters, searchFields){
         let search = {};
         let word = filters.search, wordNum = parseInt(filters.search);
         search = {
@@ -7,9 +7,9 @@ class QueryBuilder{
                 or: []
             }
         };
-        searchFields.strings.forEach(element => search.where.or[element] = {contains: word} );
+        searchFields.strings.forEach((element, index) => search.where.or.push({[element]: {contains: word}}) );
         if(Number.isInteger(wordNum))
-        searchFields.numbers.forEach(element => search.where.or[element] = {contains: wordNum} );
+        searchFields.numbers.forEach((element, index) => search.where.or.push({[element]: {contains: wordNum}}) );
         
 
         if(filters.sort == "") filters.sort = "id";
@@ -22,4 +22,20 @@ class QueryBuilder{
 
         return search;
     }
+
+    static async findIn(Model, filters, searchCondition = {}, populate = []){
+        console.log(searchCondition);
+        let items = await Model.find(searchCondition)
+                              .paginate({page: filters.page-1, limit: filters.number})
+                              .populate(populate);
+        let numbers = await Model.find(searchCondition);
+        let info = {
+            current_page: filters.page, 
+            last_page: Math.ceil(numbers.length/filters.number), 
+            from: (filters.page-1)*filters.number + 1
+        }
+        return {items: items, pageInfo: info};
+    }
 }
+
+export {QueryBuilder};
