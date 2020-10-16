@@ -5,46 +5,13 @@ import axios from "axios";
 class PlanController {
     static async index(filters = {}, component) {
         let {Plan} = models;
-
-        console.log(models);
-        
-        let search = {};
-        let word = filters.search, wordNum = parseInt(filters.search);
-        
-        if(filters.search != ""){
-            search = {
-                where: {
-                    or: [
-                        {lastname: {contains: word}}, 
-                        {firstname: {contains: word}},
-                    ]
-                }
-            };
-
-            if(Number.isInteger(wordNum)){
-                search.where.or.push({mobile: {contains: wordNum}});
-                search.where.or.push({meli_code: {contains: wordNum}});
-            }
-        }
-
-        if(filters.sort == "") filters.sort = "id";
-        if(filters.sortType == "") filters.sortType = "ASC";
-                
-        let sort = {};
-        sort[filters.sort] = filters.sortType;
-        search.sort = [];
-        search.sort.push(sort);
-
-        let users = await User.find(search)
-                              .paginate({page: filters.page-1, limit: filters.number})
-                              .populate(['residence', 'status']);
-        let numbers = await User.find(search);
-        let info = {
-            current_page: filters.page, 
-            last_page: Math.ceil(numbers.length/filters.number), 
-            from: (filters.page-1)*filters.number + 1}
-
-        component.setState({items: users, pageInfo:info});
+        let serachIn = {
+            strings:['lastname', 'firstname'],
+            numbers:['mobile', 'meli_code'],
+        };
+        let search = QueryBuilder.processFilter(filters, serachIn);
+        let result = await QueryBuilder.findIn(Plan, filters, search);
+        component.setState(result);
     }
 
     static async create(data, component){        

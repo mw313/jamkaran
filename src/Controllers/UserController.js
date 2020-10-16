@@ -14,7 +14,7 @@ class UserController {
         };
         let search = QueryBuilder.processFilter(filters, serachIn);
         let result = await QueryBuilder.findIn(User, filters, search, ['residence', 'status']);        
-        console.log(result);
+        // console.log(result);
         component.setState(result);
     }
 

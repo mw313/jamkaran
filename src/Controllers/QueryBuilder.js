@@ -23,8 +23,7 @@ class QueryBuilder{
         return search;
     }
 
-    static async findIn(Model, filters, searchCondition = {}, populate = []){
-        console.log(searchCondition);
+    static async findIn(Model, filters, searchCondition = {}, populate = []){        
         let items = await Model.find(searchCondition)
                               .paginate({page: filters.page-1, limit: filters.number})
                               .populate(populate);
