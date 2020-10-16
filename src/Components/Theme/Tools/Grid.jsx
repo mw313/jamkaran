@@ -175,9 +175,9 @@ class Grid extends Component{
   }
 
   render(){
-      let {columns, pageInfo, items, loading, insertLink, insertLinkAccess, insertLabel, status} = this.state;
+      let {columns, pageInfo, items, loading, status} = this.state;
 
-    //   console.log(items);
+      console.log(items);
 
       return(
           <div>
@@ -196,8 +196,8 @@ class Grid extends Component{
                     </thead>
                     <tbody>
                         {(()=>{
-                            if(items.length == "no-data")
-                                return <tr><td colSpan={columns.length+1} style={{textAlign:"center"}}> رکوردی یافت نشد!! </td></tr>
+                            if(items == undefined || items.length == 0)
+                                return <tr><td colSpan={columns.length+1} style={{textAlign:"center"}}> داده ای یافت نشد!! </td></tr>
                             else
                                 return items.map((item, index)=>
                                     <tr key={index} role="row1" className={(index%2==0)?"even":"odd"}>
