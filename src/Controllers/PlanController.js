@@ -1,12 +1,10 @@
 import {remote} from 'electron';
-var models = remote.getGlobal('models');
-// import { useHistory } from 'react-router-dom';
-// import {loadDB} from "../Models/adapter";
+var models = remote.getGlobal('models')
 import axios from "axios";
 
-class UserController {
+class PlanController {
     static async index(filters = {}, component) {
-        let {User} = models;
+        let {Plan} = models;
 
         console.log(models);
         
@@ -31,8 +29,7 @@ class UserController {
 
         if(filters.sort == "") filters.sort = "id";
         if(filters.sortType == "") filters.sortType = "ASC";
-
-        // search.sort = `${filters.sort} ${filters.sortType}`;
+                
         let sort = {};
         sort[filters.sort] = filters.sortType;
         search.sort = [];
@@ -166,4 +163,4 @@ class UserController {
     }
 }
 
-export {UserController};
+export {PlanController};
