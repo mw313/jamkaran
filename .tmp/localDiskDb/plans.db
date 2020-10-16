@@ -1,3 +1,1 @@
-{"title":"مرد","id":1,"_id":1}
-{"title":"زن","id":2,"_id":2}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

@@ -24,7 +24,7 @@ const createWindow = async () => {
     }
   });
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   mainWindow.loadFile(`${__dirname}/views/index.html`);
   // mainWindow.setMenu(null);
   mainWindow.maximize();

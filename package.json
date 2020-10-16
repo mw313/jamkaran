@@ -51,6 +51,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "babel-preset-stage-2": "^6.24.1",
+    "dom-helpers": "^5.2.0",
     "electron-compile": "^6.4.4",
     "electron-devtools-installer": "^2.1.0",
     "electron-localstorage": "^1.0.5",
@@ -63,6 +64,7 @@
     "react-jsx-parser": "^1.25.1",
     "react-notifications": "^1.6.0",
     "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.1",
     "sails-disk": "^2.1.0",
     "sails-nedb": "^0.10.1-a3",
     "waterline": "^0.13.6"

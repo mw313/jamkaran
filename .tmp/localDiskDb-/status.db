@@ -1,4 +1,0 @@
-{"title":"سفید","id":1,"_id":1}
-{"title":"زرد","id":2,"_id":2}
-{"title":"قرمز","id":3,"_id":3}
-{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

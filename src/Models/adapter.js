@@ -17,6 +17,7 @@ waterline.registerModel(MaritalCollection);
 waterline.registerModel(ResidentCollection);
 waterline.registerModel(NeedCollection);
 waterline.registerModel(PousheshCollection);
+
 waterline.registerModel(PlanExecuteStatusCollection);
 waterline.registerModel(PayStatusCollection);
 waterline.registerModel(PlanCollection);
@@ -25,29 +26,31 @@ waterline.registerModel(UserPlanCollection);
 const loadDB = (glob) => {
     // let models = JSON.parse(storage.getItem('Models'));
     // console.log("models");
-    // console.log(models);
     // if(models == undefined || models == "" || models == null){
         waterline.initialize(config, (err, ontology)=>{
             if (err) {
+                console.log('error !!!!!!!');
                 console.error(err);
                 return;
             }
+            console.log("ontology.collections");
+            console.log(ontology.collections);
             models = {
-                User:          ontology.collections.users,
-                Status:        ontology.collections.status,
-                UserDependant: ontology.collections.userDependant,
-                Housing:       ontology.collections.housing,
-                Gender:        ontology.collections.gender,
-                Marital:       ontology.collections.marital,
-                Residence:     ontology.collections.residence,
-                Need:          ontology.collections.need,
-                Poushesh:      ontology.collections.poushesh,
-                Education:     ontology.collections.education,
+                User:               ontology.collections.users,
+                Status:             ontology.collections.status,
+                UserDependant:      ontology.collections.userDependant,
+                Housing:            ontology.collections.housing,
+                Gender:             ontology.collections.gender,
+                Marital:            ontology.collections.marital,
+                Residence:          ontology.collections.residence,
+                Need:               ontology.collections.need,
+                Poushesh:           ontology.collections.poushesh,
+                Education:          ontology.collections.education,
 
-                Plan:          ontology.collections.plans,
-                UserPlans:     ontology.collections.userPlans,
-                PayStatus:     ontology.collections.payStatus,
-                PlanExecuteStatus:     ontology.collections.planExecuteStatus,
+                Plan:               ontology.collections.plans,
+                UserPlans:          ontology.collections.userPlans,
+                PayStatus:          ontology.collections.payStatus,
+                PlanExecuteStatus:  ontology.collections.planExecuteStatus,
             };
 
             // console.log("models-init");

@@ -8,6 +8,8 @@ import axios from "axios";
 class UserController {
     static async index(filters = {}, component) {
         let {User} = models;
+
+        console.log(models);
         
         let search = {};
         let word = filters.search, wordNum = parseInt(filters.search);

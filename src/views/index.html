@@ -30,7 +30,12 @@
   </div>
 </body>
 
-<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script>
+  if(typeof module === 'object') {
+    window.module = module; 
+    module = undefined;
+  }
+</script>
 
 <script src="../assets/CoreUI/js/libs/jquery.min.js"></script>
 <script src="../assets/CoreUI/js/libs/tether.min.js"></script>
@@ -40,25 +45,18 @@
 <script src="../assets/CoreUI/js/app.js"></script>
 <script src="../assets/CoreUI/js/views/main.js"></script>
 <script src="../assets/js/window.js"></script>
-
-<script>if (window.module) module = window.module;</script>
-
-<script type="text/jsx">
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {AppContainer} from 'react-hot-loader';
-
-const render = () => {
-  const App = require('../Components/app').default;
-  ReactDOM.render(<AppContainer><App /></AppContainer>, document.getElementById('App'));
-}
-
-render();
-
-// if (module.hot) {
-//   module.hot.accept(render);
-// }
+<script>
+  if (window.module) module = window.module;
 </script>
+<script type="text/jsx">
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import {AppContainer} from 'react-hot-loader';
 
-
+  const render = () => {
+    const App = require('../Components/app').default;
+    ReactDOM.render(<AppContainer><App /></AppContainer>, document.getElementById('App'));
+  }
+  render();
+</script>
 </html>

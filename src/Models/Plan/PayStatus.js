@@ -10,9 +10,9 @@ var PayStatusCollection = Waterline.Collection.extend({
       title: {type:'string'},
   
       // Add a reference to User
-      users: {
-        collection: 'users',
-        via: 'housing'
+      userPlans: {
+        collection: 'userPlans',
+        via: 'payStatus'
       }
     }
   });

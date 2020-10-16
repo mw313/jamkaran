@@ -9,7 +9,6 @@ var PlanExecuteStatusCollection = Waterline.Collection.extend({
       id: {type: 'number', autoMigrations: {autoIncrement: true} },
       title: {type:'string'},
   
-      // Add a reference to User
       plans: {
         collection: 'plans',
         via: 'executeStatus'

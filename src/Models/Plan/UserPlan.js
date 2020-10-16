@@ -11,12 +11,12 @@ var UserPlanCollection = Waterline.Collection.extend({
       cost: {type:'string', allowNull: true},
         
       plan: {
-        model: 'Plan',
+        model: 'Plans',
         columnName: 'plan_id'
       },
 
       user: {
-        model: 'User',
+        model: 'Users',
         columnName: 'user_id'
       },
 
