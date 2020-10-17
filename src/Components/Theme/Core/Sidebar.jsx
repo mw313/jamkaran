@@ -39,7 +39,7 @@ class Sidebar extends Component{
                             <Link className="nav-link" to="/plans">
                                 <i className="icon-people"></i> فهرست طرح ها
                             </Link>
-                            <Link className="nav-link" to="/plans">
+                            <Link className="nav-link" to="/plans/new">
                                 <i className="icon-people"></i> طرح جدید
                             </Link>
                             <Link className="nav-link" to="/users">

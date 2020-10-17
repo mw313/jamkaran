@@ -1,4 +1,3 @@
-import React, {Component} from 'react';
 import {UserController} from './../../../Controllers';
 import {UserNew} from './UserNew';
 
@@ -18,7 +17,7 @@ class UserEdit extends UserNew{
         let data = Data.getRefs(this);
         let {id} = this.state;
         // console.log(data);
-        UserController.create(data, this);
+        UserController.update(data, id, this);
     }
 }
 

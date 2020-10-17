@@ -71,6 +71,10 @@ body:not(.top-nav) .sidebar ul.nav{
 .tooltip{
     opacity: 1 !important;
 }
+.card-header{
+    font-family: lalezar;
+    font-size: 18px;
+}
 /****************************** title Bar ************************/
 .title-bar {
     -webkit-app-region: drag;
@@ -97,6 +101,7 @@ body:not(.top-nav) .sidebar ul.nav{
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.5;
+    font-family: aviny;
 }
 
 .title-bar-btns {

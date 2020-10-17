@@ -9,47 +9,39 @@ class PlanController {
         let serachIn = {
             strings:['title', 'startDate', 'totalCost', 'packetCost'],
             // numbers:['mobile', 'meli_code'],
-        };
+        };        
         let search = QueryBuilder.processFilter(filters, serachIn);
-        let result = await QueryBuilder.findIn(Plan, filters, search);
+        let result = await QueryBuilder.findIn(Plan, filters, search, ['executeStatus', 'subject']);
         component.setState(result);
     }
 
-    static async create(data, component){        
-        let {User} = models;
+    static async create(data, component){
+        let {Plan} = models;
 
-        let relationFields = ['housing', 'gender', 'status', 'marital', 'residence', 'tavanaei', 'poushesh', 'education',
-                     'need_materials', 'need_moshaver', 'need_farhangi', 'need_job', 'need_doktor', 'need_amozesh',
-                     'need_manavi'];
+        let relationFields = ['executeStatus'];
         relationFields.forEach(element => {
             if(data[element] == ""||data[element] == "-") data[element] = 100
         });
 
-        let notNullStrings = ['need_materials_detail', 'need_doktor_detail'];
-        notNullStrings.forEach(element => {
-            if(data[element] == ""||data[element] == undefined) data[element] = '';
-        });
+        // let notNullStrings = ['need_materials_detail', 'need_doktor_detail'];
+        // notNullStrings.forEach(element => {
+        //     if(data[element] == ""||data[element] == undefined) data[element] = '';
+        // });
 
-        let user = await User.create(data);
+        let plan = await Plan.create(data);
 
-        component.props.history.push("/userLists");
+        component.props.history.push("/plans");
         component.setState({saved: true});
     }
 
     static async needles(component){
-        let {Status, Housing, Marital, Residence, Need, Poushesh, Education, Gender} = models;
+        let {PlanExecuteStatus, PlanSubject} = models;
 
         let needle = {};
-        needle.status    = await Status.find({});
-        needle.housing   = await Housing.find({});
-        needle.marital   = await Marital.find({});
-        needle.residence = await Residence.find({});
-        needle.need      = await Need.find({});
-        needle.poushesh  = await Poushesh.find({});
-        needle.education = await Education.find({});
-        needle.gender    = await Gender.find({});
+        needle.executeStatuses    = await PlanExecuteStatus.find({});
+        needle.subjects           = await PlanSubject.find({});        
 
-        // console.log("models");
+        // console.log("needles");
         // console.log( needle );
 
         component.setState({needles:needle});

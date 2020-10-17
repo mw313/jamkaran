@@ -2,14 +2,14 @@ import { app, BrowserWindow, globalShortcut } from 'electron';
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import {loadDB} from './Models/adapter';
 import path from 'path';
-// import { enableLiveReload } from 'electron-compile';
+import { enableLiveReload } from 'electron-compile';
 
 let mainWindow;
 global.models = {};
 loadDB(global);
 
 const isDevMode = process.execPath.match(/[\\/]electron/);
-// if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
+if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
 const createWindow = async () => {
   mainWindow = new BrowserWindow({

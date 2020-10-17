@@ -18,11 +18,17 @@ var PlanCollection = Waterline.Collection.extend({
         model: 'planExecuteStatus',
         columnName: 'status_id'
       },
+      
+      subject: {
+        model: 'planSubjects',
+        columnName: 'subject_id'
+      },
 
       userPlans: {
         collection: 'userPlans',
         via: 'plan'
-      }
+      },
+
     }
   });
 

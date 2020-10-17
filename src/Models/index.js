@@ -16,4 +16,5 @@ export * from "./Plan/PayStatus";
 export * from "./Plan/Plan";
 export * from "./Plan/PlanExecuteStatus";
 export * from "./Plan/UserPlan";
+export * from "./Plan/PlanSubjects";
 

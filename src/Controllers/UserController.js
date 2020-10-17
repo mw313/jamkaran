@@ -35,7 +35,7 @@ class UserController {
 
         let user = await User.create(data);
 
-        component.props.history.push("/userLists");
+        component.props.history.push("/users");
         component.setState({saved: true});
     }
 

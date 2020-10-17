@@ -35,8 +35,8 @@ class UserNew extends Component{
                           "house_status":1,"residence_status":1,"poushesh_status":1,"education_status":1,"need_materials_id":2,"need_moshaver_id":1,
                           "need_farhangi_id":1,"need_job_id":1,"need_doktor_id":1,"need_amozesh_id":1,"need_manavi_id":1,"_id":1}
 
-        console.log("item");
-        console.log(item);
+        // console.log("item");
+        // console.log(item);
         return (
             <Card title="متقاضی جدید">
                 <div className="row">
