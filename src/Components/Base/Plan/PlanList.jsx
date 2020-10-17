@@ -16,8 +16,11 @@ class PlanList extends Component{
                 {label: "وضعیت", sort:true, field: "executeStatus.title"},
                 // {label: "جنسیت", sort:true, field: "gender.title"},
                 {label: "عملیات", sort:false,
-                    field: `<Icon to={"/plans/"+item.id+"/edit"} materialIcon="edit" title="edit" />`,
-                    width:"80px",
+                    field: `<Icon to={"/plans/"+item.id+"/edit"} materialIcon="edit" title="edit" />
+                            <Icon to={"/plans/"+item.id+"/people"} materialIcon="groups" title="person" />
+                            <Icon to={"/plans/"+item.id+"/addPeople"} materialIcon="person_add" title="person" />
+                            `,
+                    width:"120px",
                 },
             ],
             activeSearch: true,

@@ -12,6 +12,8 @@ class PlanEdit extends PlanNew{
     componentWillMount(){
         let {id} = this.props.match.params;
         this.state.id = id;
+        this.state.back = true;
+        this.state.pageTitle = "ویرایش اطلاعات طرح";
         PlanController.show(id, this);
     }
 

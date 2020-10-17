@@ -9,6 +9,8 @@ class PlanNew extends Component{
             needles: {executeStatuses:[], subjects:[]},
             item: null,
             saved: false,
+            back: false,
+            pageTitle: "طرح جدید"
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.save = this.save.bind(this);
@@ -25,14 +27,14 @@ class PlanNew extends Component{
 
     render(){
         let {executeStatuses, subjects} = this.state.needles;
-        let {item, saved} = this.state;
+        let {item, saved, back, pageTitle} = this.state;
         if(item == null)
         item = {"title":"طرح تست","startDate":"1399/07/21","comment":"طرح حمایت از افراد بی بضاعت",
                 "executeStatus":{id: 1},"subject":{id: 1}, "packetCost":"1000", 
                 "totalCost":"20000", "founder":"خادمان جمکران"}
         
         return (
-            <Card title="طرح جدید">
+            <Card title={pageTitle} back={back}>
                 <div className="row">
                     <Input className="col-md-6" label="عنوان طرح" ref="title" defaultValue={item.title} />
                     <Input className="col-md-6" label="تاریخ شروع" ref="startDate" defaultValue={item.startDate} />

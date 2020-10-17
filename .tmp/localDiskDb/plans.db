@@ -1,4 +1,5 @@
-{"title":"طرح تستی","startDate":"1399/06/27","comment":"در این طرح تست می شود...","packetCost":"25000","totalCost":"2500000","founder":"احمد آقا","id":1,"status_id":1,"_id":1,"subject_id":1}
+{"title":"طرح تستی","startDate":"1399/06/27","comment":"در این طرح تست می شود...","packetCost":"25000","totalCost":"2500000","founder":"گروه فنی سانگار","id":1,"status_id":2,"_id":1,"subject_id":1}
 {"title":"طرح کمک لوازم التحریر","startDate":"1399/07/21","comment":"طرح حمایت از افراد بی بضاعت","packetCost":"350","totalCost":"20000","founder":"خادمان جمکران","id":2,"status_id":3,"subject_id":1,"_id":2}
-{"title":"طرح خدماتی","startDate":"1399/07/21","comment":"طرح حمایت از افراد بی بضاعت","packetCost":"1000","totalCost":"20000","founder":"خادمان جمکران","id":3,"status_id":3,"subject_id":2,"_id":3}
+{"title":"طرح خدماتی","startDate":"1399/07/21","comment":"طرح حمایت از افراد بی بضاعت","packetCost":"1000","totalCost":"20000","founder":"خادمان جمکران","id":3,"status_id":1,"subject_id":2,"_id":3}
+{"title":"طرح تست","startDate":"1399/07/21","comment":"در این قسمت توضیحات ذکر می گردد.","packetCost":"1000","totalCost":"20000","founder":"خادمان جمکران","id":4,"status_id":1,"subject_id":1,"_id":4}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

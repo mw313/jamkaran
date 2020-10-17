@@ -60,10 +60,8 @@ class UserController {
 
     static async show(id, component){
         let {User} = models;
-
         let user = await User.find({id: id});
-        console.log("user");
-        console.log(user);
+        
         component.setState({item: user[0]});
     }
 

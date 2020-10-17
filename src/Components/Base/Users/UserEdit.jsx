@@ -11,6 +11,8 @@ class UserEdit extends UserNew{
     componentWillMount(){
         let {id} = this.props.match.params;
         this.state.id = id;
+        this.state.back = true;
+        this.state.pageTitle = "ویرایش اطلاعات متقاضی";
         UserController.show(id, this);
     }
 

@@ -7,7 +7,9 @@ class UserNew extends Component{
         super(props);
         this.state = {
             needles: {status:[], housing:[], marital:[], residence:[], need:[], poushesh:[], education:[], gender:[]},
-            item: null
+            item: null,
+            back: false,
+            pageTitle: "متقاضی جدید",
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.save = this.save.bind(this);
@@ -25,7 +27,7 @@ class UserNew extends Component{
 
     render(){
         let {status, housing, marital, residence, need, poushesh, education, gender} = this.state.needles;
-        let {item} = this.state;
+        let {item, pageTitle, back} = this.state;
         if(item == null)
         item = {"firstname":"علی","lastname":"علوی","father_name":"محمد","form_code":0,"rabet_code":125,
                           "shenasname_code":"22535","meli_code":"0215","birth_date":"1380","birth_place":"قم","takafol_number":5,"address":"455",
@@ -38,7 +40,7 @@ class UserNew extends Component{
         // console.log("item");
         // console.log(item);
         return (
-            <Card title="متقاضی جدید">
+            <Card title={pageTitle} back={back}>
                 <div className="row">
                     <Input className="col-md-6" label="کد فرم" ref="form_code" defaultValue={item.form_code} />
                     <Input className="col-md-6" label="کد رابط" ref="rabet_code" defaultValue={item.rabet_code} />

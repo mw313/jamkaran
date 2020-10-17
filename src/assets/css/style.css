@@ -70,6 +70,8 @@ body:not(.top-nav) .sidebar ul.nav{
 }
 .tooltip{
     opacity: 1 !important;
+    position: relative !important;
+    display: inline-block !important;
 }
 .card-header{
     font-family: lalezar;
@@ -216,6 +218,8 @@ button:focus{
 
 .seperator-title{
     padding: 3px 0px 3px 10px;
+    font-family: lalezar;
+    font-size: 17px;
 }
 
 .seperator-hr{
@@ -268,6 +272,20 @@ input[type="radio"]{
 }
 .hidden{
     display: none;
+}
+.float-left{
+    float: left;
+}
+.card-header{
+    background-color: #FFF !important;
+    border-bottom: 0px !important;
+}
+.card-header .btn{
+    font-family: 'IRANSans';
+    font-weight: 200;
+}
+.radio label{
+    cursor: pointer;
 }
 /* ================================= Dore Script ================================ */
 .search-sm{
