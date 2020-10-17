@@ -18,7 +18,7 @@ class PlanController {
     static async create(data, component){
         let {Plan} = models;
 
-        let relationFields = ['executeStatus'];
+        let relationFields = ['executeStatus', 'subject'];
         relationFields.forEach(element => {
             if(data[element] == ""||data[element] == "-") data[element] = 100
         });
@@ -39,60 +39,38 @@ class PlanController {
 
         let needle = {};
         needle.executeStatuses    = await PlanExecuteStatus.find({});
-        needle.subjects           = await PlanSubject.find({});        
-
-        // console.log("needles");
-        // console.log( needle );
+        needle.subjects           = await PlanSubject.find({});
 
         component.setState({needles:needle});
     }
 
     static async show(id, component){
-        let {User} = models;
-
-        let user = await User.find({id: id});
-        console.log("user");
-        console.log(user);
-        component.setState({item: user[0]});
+        let {Plan} = models;
+        let plan = await Plan.find({id: id}).populate(['executeStatus', 'subject']);
+        
+        component.setState({item: plan[0]});
     }
 
-    static async seed(component){
-        let {Status, Housing, Marital, Residence, Need, Poushesh, Education} = models;
-        // let user = await User.create(data);
-        await Marital.create({"title":"مجرد"});
-        await Marital.create({"title":"متاهل"});
-        await Marital.create({"title":"مطلقه"});
-        await Marital.create({"title":"همسر فوت کرده"});            
-        
-        await Status.create({"title":"سفید"});
-        await Status.create({"title":"زرد"});
-        await Status.create({"title":"قرمز"});
+    static async seed(){
+        // console.log(models);
+        // return;
+        let {PlanExecuteStatus, PlanSubject, PayStatus} = models;
+                
+        await PlanSubject.create({"title":"بسته غذایی"});
+        await PlanSubject.create({"title":"لوازم التحریر"});
+        await PlanSubject.create({"title":"گوشت قربانی"});
 
-        await Housing.create({"title":"مالک"});
-        await Housing.create({"title":"مستاجر"});
-        await Housing.create({"title":"منزل پدری"});
-        await Housing.create({"title":"منزل فرزند"});
-        
-        await Residence.create({"title":"بومی"});
-        await Residence.create({"title":"غیر بومی"});
-        
-        await Need.create({"title":"دارد"});
-        await Need.create({"title":"ندارد"});
-        
-        await Poushesh.create({"title":"تامین اجتماعی"});
-        await Poushesh.create({"title":"اداره بهزیستی"});
-        
-        await Education.create({"title":"بیسواد"});
-        await Education.create({"title":"نهضت سواد آموزی"});
-        await Education.create({"title":"ابتدایی"});
-        await Education.create({"title":"سیکل"});
-        await Education.create({"title":"دیپلم"});
-        await Education.create({"title":"کاردانی"});
-        await Education.create({"title":"کارشناسی"});
-        await Education.create({"title":"کارشناسی ارشد"});
-        await Education.create({"title":"دکترا"});
-        await Education.create({"title":"حوزوی"});
-        // component.setState({saved: true});
+        // await PlanSubject.create({"title":""});
+
+        await PlanExecuteStatus.create({"title":"در انتظار شروع"});
+        await PlanExecuteStatus.create({"title":"در حال اجرا"});
+        await PlanExecuteStatus.create({"title":"اتمام یافته"});
+
+        await PayStatus.create({"title":"در صفت دریافت"});
+        await PayStatus.create({"title":"دریافت شد"});
+        await PayStatus.create({"title":"عدم حضور"});
+        await PayStatus.create({"title":"تغییر آدرس"});
+        await PayStatus.create({"title":"لغو"});
     }
 
     static convert(){
@@ -106,17 +84,18 @@ class PlanController {
     }
 
     static async update(data, id, component){
-        let {User} = models;
-        let userUpdated = await User.update({id: id})
+        let {Plan} = models;
+
+        let planUpdated = await Plan.update({id: id})
             .set(data)
             .fetch();
-        if(userUpdated.length > 0)
+        if(planUpdated.length > 0)
             component.setState({saved: true});
     }
 
     static async delete(id, component){
-        let {User} = models;
-        let user = await User.create(data);
+        let {Plan} = models;
+        let plan = await Plan.create(data);
         component.setState({saved: true});        
     }
 }

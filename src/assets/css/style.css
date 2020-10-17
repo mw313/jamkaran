@@ -266,7 +266,9 @@ input[type="radio"]{
     transform: none !important;
     top: 32px !important;
 }
-
+.hidden{
+    display: none;
+}
 /* ================================= Dore Script ================================ */
 .search-sm{
     position:relative

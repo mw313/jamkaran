@@ -177,7 +177,7 @@ class Grid extends Component{
   render(){
       let {columns, pageInfo, items, loading, status} = this.state;
 
-      console.log(items);
+    //   console.log(items);
 
       return(
           <div>

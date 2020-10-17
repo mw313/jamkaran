@@ -12,10 +12,11 @@ class PlanList extends Component{
                 {label: "بانی", sort:true, field: "founder"},
                 {label: "ارزش کل", sort:true, field: "totalCost"},
                 {label: "ارزش هر بسته", sort:true, field: "packetCost"},
-                {label: "وضعیت", sort:true, field: "status.title"},
+                {label: "دسته بندی", sort:true, field: "subject.title"},
+                {label: "وضعیت", sort:true, field: "executeStatus.title"},
                 // {label: "جنسیت", sort:true, field: "gender.title"},
                 {label: "عملیات", sort:false,
-                    field: `<Icon to={"/users/"+item.id+"/edit"} materialIcon="edit" title="edit" />`,
+                    field: `<Icon to={"/plans/"+item.id+"/edit"} materialIcon="edit" title="edit" />`,
                     width:"80px",
                 },
             ],
@@ -28,7 +29,8 @@ class PlanList extends Component{
     }
 
     componentDidMount(){
-        // UserController.convert();
+        // PlanController.convert();
+        // PlanController.seed();
     }
     
     render(){

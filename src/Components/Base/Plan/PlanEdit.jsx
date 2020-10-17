@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {PlanController} from './../../../Controllers';
 import {PlanNew} from './PlanNew';
+import {Data} from "../../Theme";
 
 class PlanEdit extends PlanNew{
     constructor(props){
@@ -18,7 +19,7 @@ class PlanEdit extends PlanNew{
         let data = Data.getRefs(this);
         let {id} = this.state;
         // console.log(data);
-        PlanController.create(data, this);
+        PlanController.update(data, id, this);
     }
 }
 

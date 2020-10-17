@@ -1,5 +1,6 @@
 import {UserController} from './../../../Controllers';
 import {UserNew} from './UserNew';
+import {Data} from "../../Theme";
 
 class UserEdit extends UserNew{
     constructor(props){

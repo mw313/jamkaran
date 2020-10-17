@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import {Card, Input, Select2, Textarea, Seperator, Button, Data, Radio} from "../../Theme";
+import {Card, Input, Select2, Textarea, Seperator, Button, Data, Radio, Alert} from "../../Theme";
 import {PlanController} from './../../../Controllers';
 
 class PlanNew extends Component{
     constructor(props){
         super(props);
         this.state = {
-            needles: {status:[], housing:[], marital:[], residence:[], need:[], poushesh:[], education:[], gender:[]},
-            item: null
+            needles: {executeStatuses:[], subjects:[]},
+            item: null,
+            saved: false,
         };
         this.componentDidMount = this.componentDidMount.bind(this);
         this.save = this.save.bind(this);
@@ -24,7 +25,7 @@ class PlanNew extends Component{
 
     render(){
         let {executeStatuses, subjects} = this.state.needles;
-        let {item} = this.state;
+        let {item, saved} = this.state;
         if(item == null)
         item = {"title":"طرح تست","startDate":"1399/07/21","comment":"طرح حمایت از افراد بی بضاعت",
                 "executeStatus":{id: 1},"subject":{id: 1}, "packetCost":"1000", 
@@ -36,8 +37,8 @@ class PlanNew extends Component{
                     <Input className="col-md-6" label="عنوان طرح" ref="title" defaultValue={item.title} />
                     <Input className="col-md-6" label="تاریخ شروع" ref="startDate" defaultValue={item.startDate} />
                     <Textarea className="col-md-12" label="توضیحات" ref="comment" defaultValue={item.comment} />
-                    <Radio label="وضعیت اجرا" className="col-md-4" ref="tavanaei" defaultValue={item.executeStatus.id} data={executeStatuses} />
-                    <Radio label="موضوع" className="col-md-4" ref="tavanaei" defaultValue={item.subject.id} data={subjects} />
+                    <Radio label="وضعیت اجرا" className="col-md-6" ref="executeStatus" defaultValue={item.executeStatus?item.executeStatus.id:0} data={executeStatuses} />
+                    <Radio label="موضوع" className="col-md-6" ref="subject" defaultValue={item.subject?item.subject.id:0} data={subjects} />
                 </div>
 
                 <div className="row">
@@ -49,6 +50,12 @@ class PlanNew extends Component{
                 <div className="row">
                     <Seperator label="ذخیره سازی"/>
                     <Button label="ذخیره" onClick={this.save} />
+                </div>
+                <div className="row">
+                    <div className="col-md-12">
+                        <br/>
+                        <Alert text="داده با موفقیت ذخیره شد" className={saved?"":"hidden"} />
+                    </div>
                 </div>
             </Card>
         );

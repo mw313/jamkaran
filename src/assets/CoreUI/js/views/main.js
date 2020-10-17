@@ -1,6 +1,7 @@
 $(function(){
     'use strict';
 
+    /*
     //convert Hex to RGBA
     function convertHex(hex,opacity){
         hex = hex.replace('#','');
@@ -530,5 +531,6 @@ $(function(){
         data: data6,
         options: options
     });
+    */
 
 });

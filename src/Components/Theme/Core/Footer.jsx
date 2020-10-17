@@ -8,7 +8,7 @@ class Footer extends Component{
                     <a href="http://coreui.io">CoreUI</a> &copy; 2020 creativeLabs.
                 </span>
                 <span className="pull-right">
-                    Powered by <a href="http://coreui.io">Sanegar</a>
+                    Powered by <a href="http://sanegar.com">Sanegar</a>
                 </span>
             </footer>
         );

@@ -34,12 +34,12 @@ const loadDB = (glob) => {
                 console.error(err);
                 return;
             }
-            console.log("ontology.collections");
-            console.log(ontology.collections);
+            // console.log("ontology.collections");
+            // console.log(ontology.collections);
             models = {
                 User:               ontology.collections.users,
                 Status:             ontology.collections.status,
-                UserDependant:      ontology.collections.userDependant,
+                UserDependant:      ontology.collections.userdependant,
                 Housing:            ontology.collections.housing,
                 Gender:             ontology.collections.gender,
                 Marital:            ontology.collections.marital,
@@ -49,10 +49,10 @@ const loadDB = (glob) => {
                 Education:          ontology.collections.education,
 
                 Plan:               ontology.collections.plans,
-                UserPlans:          ontology.collections.userPlans,
-                PayStatus:          ontology.collections.payStatus,
-                PlanExecuteStatus:  ontology.collections.planExecuteStatus,
-                PlanSubject:        ontology.collections.planSubjects,
+                UserPlans:          ontology.collections.userplans,
+                PayStatus:          ontology.collections.paystatus,
+                PlanExecuteStatus:  ontology.collections.planexecutestatus,
+                PlanSubject:        ontology.collections.plansubjects,
             };
 
             // console.log("models-init");

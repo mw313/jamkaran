@@ -1,1 +1,6 @@
+{"title":"در صفت دریافت","id":1,"_id":1}
+{"title":"دریافت شد","id":2,"_id":2}
+{"title":"عدم حضور","id":3,"_id":3}
+{"title":"تغییر آدرس","id":4,"_id":4}
+{"title":"لغو","id":5,"_id":5}
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

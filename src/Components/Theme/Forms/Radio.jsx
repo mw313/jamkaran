@@ -15,13 +15,13 @@ export class Radio extends Element {
     }
 
     render(){
-        let {label, defaultValue, error, className, options, disabled, inputClassName , id,
+        let {label, className, options, disabled, inputClassName , id,
              required, help, data} = this.props;
         let divError = this.checkError();
         let {rand, previousRef} = this.state;
 
         let helpDiv = '';
-        let requiredDiv = '';        
+        let requiredDiv = '';
 
         if(required == "true")
         {
@@ -43,7 +43,7 @@ export class Radio extends Element {
                                     <input className={"form-control1 "+inputClassName}
                                         value={item.id}
                                         key={'input'+rand}
-                                        ref='item'
+                                        ref={'item'+index==0?"":index}
                                         disabled={disabled}
                                         onFocus={()=>this.removeError()}
                                         type="radio"
